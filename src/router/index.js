@@ -1,26 +1,46 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+
 
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
+    name: 'deskweb',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "PortalWeb" */ '../Layouts/DeskWeb.vue'),
+    children:[
+      {
+        path:"soluciones",
+        name:"soluciones",
+        component: ()=> import(/* webpackChunkName: "Soluciones" */ '../views/SolutionsDesk.vue')
+      },
+      {
+        path:"articulo-incidente",
+        name:"articuloincidente",
+        component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/ArticleIncidents.vue')
+      }
+    ]
+  },
+  {
+    path:"/dashboard",
+    name:"dashboard",
+    component: ()=> import(/* webpackChunkName: "Incidentes" */ '../Layouts/DashboardHelpDesk.vue'),
+  },
+  {
+    path:"/login",
+    name:"login",
+    component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/Login.vue'),
   }
 ]
 
 const router = new VueRouter({
+  mode:"history",
   routes
 })
 
