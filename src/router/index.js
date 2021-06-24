@@ -18,12 +18,12 @@ const routes = [
       {
         path:"soluciones",
         name:"soluciones",
-        component: ()=> import(/* webpackChunkName: "Soluciones" */ '../views/SolutionsDesk.vue')
+        component: ()=> import(/* webpackChunkName: "Soluciones" */ '../views/SolucionesDesk.vue')
       },
       {
         path:"articulo-incidente",
         name:"articuloincidente",
-        component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/ArticleIncidents.vue')
+        component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/ArticuloIncidentes.vue')
       }
     ]
   },

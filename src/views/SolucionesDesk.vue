@@ -54,11 +54,6 @@
   cursor: pointer;
 }
 
-/* main .card:hover {
-  transform: rotateX(0deg) rotateY(20deg) rotateZ(0deg);
-  color: hsla(0, 0%, 100%, 0.8);
-  text-decoration: none;
-} */
 
 .main .card img {
   width: 50px;
@@ -77,15 +72,15 @@
 }
 
 .main .knowled {
-  background-color: #2f6692;
+  background-color: #d01a49;
 }
 
 .main .faqs {
-  background-color: #593093;
+  background-color: #000;
 }
 
 .main .more-questions {
-  background-color: #24bd85;
+  background-color: #d01a49;
 }
 
 </style>

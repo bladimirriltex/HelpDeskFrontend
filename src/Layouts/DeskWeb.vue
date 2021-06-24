@@ -4,16 +4,16 @@
       <nav class="container menu">
         <div class="logo-container">
           <img
-            src="@/assets/img/logo.png"
+            src="@/assets/img/utp.jpg"
             alt=""
           />
         </div>
         <ul>
-          <li><i class="las la-home"></i>Homepage</li>
-          <li><i class="las la-scroll"></i>Knowled Base</li>
-          <li><i class="las la-newspaper"></i><router-link to="dashboard" >News</router-link></li>
-          <li><i class="las la-calendar-alt"></i>Events</li>
-          <li><i class="las la-pencil-alt"></i>Page Variatons</li>
+          <li><router-link to="/"><i class="las la-home"></i>Homepage</router-link></li>
+          <li><router-link to="/soluciones"><i class="las la-scroll"></i>Soluciones</router-link></li>
+          <li><router-link to="dashboard" ><i class="las la-newspaper"></i>Incidentes</router-link></li>
+          <li><router-link to="/"><i class="las la-calendar-alt"></i>Events</router-link></li>
+          <li><router-link to="/login"><i class="las la-user-alt"></i>Iniciar Sesion</router-link></li>
         </ul>
       </nav>
     </div>
@@ -86,8 +86,13 @@
 <script>
 </script>
 <style>
+:root{
+  --red-utp:#B50D30;
+  --black: #000;
+  --white: #fff;
+}
 .bar-nav-container {
-  background-color: #593093;
+  background-color: var(--white);
   height: 60px;
   width: 100%;
   display: flex;
@@ -103,24 +108,34 @@
 }
 
 .bar-nav-container .menu ul {
-  width: 50%;
+  width: 60%;
+  max-width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 
   font-size: 1.5rem;
-  font-weight: 300;
-  color: #fff;
+  font-weight: 400;
+  color: rgb(36, 34, 34);
 }
 .bar-nav-container .menu ul li {
   padding: 5px;
+  
   border-radius: 3px;
 }
-
-.bar-nav-container .menu ul li:hover {
-  background-color: #4c2780;
+.bar-nav-container .menu ul li a{
   padding: 5px;
+  width: inherit;
+  
 }
+
+.bar-nav-container .menu ul  li a:hover {
+  background-color: #3d3636;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
 
 .logo-container {
   width: 180px;
@@ -133,7 +148,7 @@
 /* #############################hero################### */
 
 .hero {
-  background-image: linear-gradient(135deg, #2ab5bb 8%, #2a7bbb);
+  background-image: linear-gradient(to right top, #b50d30, #87122d, #5a1325, #301119, #000000);
 }
 .hero-container {
   height: 88vh;
@@ -160,7 +175,7 @@
 .hero-container .quick-links {
   border-radius: 4px;
   width: 300px;
-  background-color: #4f419b;
+  background-color: #312f2f;
   overflow: hidden;
 }
 
@@ -183,14 +198,14 @@
 }
 
 .hero-container .quick-links .card-content:hover {
-  background-color: #593093;
+  background-color: rgb(71, 64, 64);
   color: hsla(0, 0%, 100%, 0.6);
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .section-contact {
-  background-color: #2f6692;
+  background-color: #000;
   padding: 50px;
   color: #fff;
   height: 280px;
@@ -224,8 +239,9 @@
   cursor: pointer;
 }
 .contact-support .contacts .card-contact:hover {
-  color: hsla(0, 0%, 100%, 0.8);
+  color: hsla(0, 5%, 80%, 0.8);
   text-decoration: none;
+  border:1px solid #fff;
 }
 
 .contact-support .contacts .card-contact h3 {
@@ -249,7 +265,7 @@
 /* ##########Footer#################### */
 
 footer {
-  background-color: #0d1c25;
+  background-color: #24292e;
   font-size: 1.3rem;
   padding: 50px 65px 45px;
   color: #fff;

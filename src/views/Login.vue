@@ -2,14 +2,12 @@
     <div class="login-container">
         <div class="login">
             <div class="img-container js-tilt">
-                <img src="@/assets/img/img-01.png" alt="">
-
             </div>
             <form class="form-login">
-                <h2>Menber Login</h2>
+                <h2>Iniciar Sesion</h2>
                 <label for="email">
                     <div class="wrap-input las la-at">
-                        <input type="text" name="email" id="email" placeholder="Email">
+                        <input type="text" name="email" id="email" placeholder="Correo">
                         <span></span>
                         <span></span>
                     </div>
@@ -17,13 +15,13 @@
 
                 <label for="password">
                     <div class="wrap-input las la-shield-alt">
-                        <input type="password" name="password" id="password" placeholder="password">
+                        <input type="password" name="password" id="password" placeholder="Contraseña">
                         <span></span>
                         <span></span>
                     </div>
                 </label>
 
-                <div class="wrap-button">
+                <div class="wrap-button ">
                     <button> Login </button>
                 </div>
             </form>
@@ -45,17 +43,24 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Lato", sans-serif;
+  font-family: "Lato";
+}
+.login{
+    background-image: url('../assets/img/portada-utp-login.webp');
+    background-size: cover;
+    background-repeat: none;
+    position: relative;
+
 }
 .img-container img {
-  width: 100%;
+  width: 60%;
 }
 
 .login-container {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background-image: linear-gradient(to right top, #b50d30, #87122d, #5a1325, #301119, #000000);
 }
 
 .login-container .login {
@@ -78,11 +83,17 @@ html {
 }
 
 .login form{
-    width:300px;
+    background-color: #fff;
+    height: 100%;
+    width: 40%;
+    padding: 100px 30px;
+    position: absolute;
+    right: 0;
+    
+    
 }
 
 .form-login h2{
-    font-family: Poppins-Bold;
     font-size:2.4rem;
     color:#333;
     text-align: center;
@@ -90,6 +101,8 @@ html {
 }
 
 .form-login .wrap-input{
+    max-width: 400px;
+    width: 350px;
     background-color:green;
     font-size:2.2rem;
     font-weight:900;
@@ -106,8 +119,9 @@ html {
 }
 
 .form-login .wrap-input:hover{
-    color:#57b846;
-    box-shadow:4px 6px 5px 0px rgb(68 226 65 / 62%);
+    color: #252222;
+    box-shadow: 4px 6px 5px 0px rgb(62 72 62 / 62%);
+    transition: 0.4s ease-in;
 }
 
 .form-login .wrap-input:focus{
@@ -123,11 +137,15 @@ html {
     background-color: inherit;
 }
 
+.form-login .wrap-input input:focus::placeholder{
+    color:transparent;
+}
+
 .form-login .wrap-button{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    
     padding-top: 20px;
 }
 
@@ -135,17 +153,18 @@ html {
     font-size: 1.5rem;
     color:#fff;
     text-transform: uppercase;
-    width:100%;
+    width:350px;
     height: 50px;
     border-radius: 25px;
-    background-color:#57b846;
+    background-color:#c42525;
     outline:none;
     border:none;
     font-weight: bold;
 }
 
 .form-login .wrap-button button:hover{
-    background-color:#56814e;
+    background-color:#181a17;
+    transition: 0.7s ease-in;
 }
 
 </style>

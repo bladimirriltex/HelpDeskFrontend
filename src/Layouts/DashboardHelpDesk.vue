@@ -76,189 +76,12 @@
       </header>
 
       <main class="main-dashboard">
-        <div class="cards">
-          <div class="card-single">
-            <div>
-              <h1>54</h1>
-              <span>Customers</span>
-            </div>
-            <div>
-              <span class="las la-users"></span>
-            </div>
-          </div>
-
-          <div class="card-single">
-            <div>
-              <h1>79</h1>
-              <span>Projects</span>
-            </div>
-            <div>
-              <span class="las la-clipboard"></span>
-            </div>
-          </div>
-
-          <div class="card-single">
-            <div>
-              <h1>124</h1>
-              <span>Orders</span>
-            </div>
-            <div>
-              <span class="las la-shopping-bag"></span>
-            </div>
-          </div>
-
-          <div class="card-single">
-            <div>
-              <h1>$6K</h1>
-              <span>Income</span>
-            </div>
-            <div>
-              <span class="lab la-google-wallet"></span>
-            </div>
-          </div>
-        </div>
-
+        
+        <EstadisticasIncidentes/>
         <div class="recent-grid">
-          <div class="projects">
-            <div class="card">
-              <div class="card-header">
-                <h3>Recent Projects</h3>
-                <button>
-                  See all <span class="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table-dashboard" width="100%">
-                    <thead>
-                      <td>Projects Title</td>
-                      <td>Departamento</td>
-                      <td>Status</td>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>UI/UX Design</td>
-                        <td>UI team</td>
-                        <td><span class="status purple"></span> review</td>
-                      </tr>
-                      <tr>
-                        <td>Web develoment</td>
-                        <td>Frontend</td>
-                        <td><span class="status pink"></span> in progress</td>
-                      </tr>
-
-                      <tr>
-                        <td>Ushop app</td>
-                        <td>Mobile team</td>
-                        <td><span class="status orange"></span> review</td>
-                      </tr>
-                      <tr>
-                        <td>UI/UX Design</td>
-                        <td>UI team</td>
-                        <td><span class="status purple"></span> review</td>
-                      </tr>
-                      <tr>
-                        <td>Web develoment</td>
-                        <td>Frontend</td>
-                        <td><span class="status pink"></span> in progress</td>
-                      </tr>
-
-                      <tr>
-                        <td>Ushop app</td>
-                        <td>Mobile team</td>
-                        <td><span class="status orange"></span> review</td>
-                      </tr>
-                      <tr>
-                        <td>UI/UX Design</td>
-                        <td>UI team</td>
-                        <td><span class="status purple"></span> review</td>
-                      </tr>
-                      <tr>
-                        <td>Web develoment</td>
-                        <td>Frontend</td>
-                        <td><span class="status pink"></span> in progress</td>
-                      </tr>
-
-                      <tr>
-                        <td>Ushop app</td>
-                        <td>Mobile team</td>
-                        <td><span class="status orange"></span> review</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="customers">
-            <div class="card">
-              <div class="card-header">
-                <h3>New Customers</h3>
-                <button>
-                  See all <span class="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div class="card-body">
-                <div class="customer">
-                  <div class="info">
-                    <img
-                      src="../assets/img/person.jpg"
-                      width="40px"
-                      height="40px"
-                    />
-                    <div class="">
-                      <h4>Lewis 5. cumeus</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-
-                <div class="customer">
-                  <div class="info">
-                    <img
-                      src="../assets/img/person.jpg"
-                      width="40px"
-                      height="40px"
-                    />
-                    <div class="">
-                      <h4>Lewis 5. cumeus</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-
-                <div class="customer">
-                  <div class="info">
-                    <img
-                      src="../assets/img/person.jpg"
-                      width="40px"
-                      height="40px"
-                    />
-                    <div class="">
-                      <h4>Lewis 5. cumeus</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <TablaIncidentes/>
+          <Cliente/>
+          
         </div>
       </main>
     </div>
@@ -266,14 +89,26 @@
 </template>
 
 <script scope>
-export default {};
+import EstadisticasIncidentes from '@/components/EstadisticasIncidentes.vue';
+import TablaIncidentes from '@/components/TablaIncidentes.vue';
+import Cliente from '@/components/Cliente'; 
+
+export default {
+  name:"DashboardHelDesk",
+  components:{
+    EstadisticasIncidentes,
+    TablaIncidentes,
+    Cliente
+  }
+
+};
 </script>
 
 <style >
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
-  --main-color: #dd2f6e;
+  --main-color: #B50D30;
   --color-dark: #1d2231;
   --text-grey: #8390a2;
 }
@@ -326,7 +161,7 @@ img {
   padding-left: 1rem;
   display: block;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
 }
 
 .sidebar-menu a.active {
@@ -338,7 +173,7 @@ img {
 }
 
 .sidebar-menu a span:first-child {
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-right: 1rem;
 }
 
@@ -393,10 +228,13 @@ header {
 
 header h3 {
   color: #222;
+  font-size: 2rem;
 }
 
 header label span {
-  font-size: 1.7rem;
+  position: relative;
+  top:2.5px;
+  font-size: 3rem;
 }
 
 .search-wrapper {
@@ -409,8 +247,8 @@ header label span {
 }
 .search-wrapper span {
   display: inline-block;
-  padding: 0rem 1rem;
-  font-size: 1.5rem;
+  padding: 0rem 2rem;
+  font-size: 2rem;
 }
 
 .search-wrapper input {
@@ -442,39 +280,7 @@ header label span {
   min-height: calc(100vh - 90px);
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
-  margin-top: 1rem;
-}
 
-.card-single {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 2px;
-}
-
-.card-single div:last-child span {
-  font-size: 3rem;
-  color: var(--main-color);
-}
-
-.card-single div:first-child span {
-  color: var(--text-grey);
-}
-
-.card-single:last-child {
-  background-color: var(--main-color);
-}
-
-.card-single:last-child h1,
-.card-single:last-child div:first-child span,
-.card-single:last-child div:last-child span {
-  color: #fff;
-}
 
 .recent-grid {
   margin-top: 3.5rem;
@@ -483,111 +289,8 @@ header label span {
   grid-template-columns: 70% auto;
 }
 
-.card {
-  background: #fff;
-  border-radius: 5px;
-}
 
-.card-header,
-.card-body {
-  padding: 1rem;
-}
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #f0f0f0;
-}
-.card-header button {
-  background: var(--main-color);
-  border-radius: 10px;
-  color: #fff;
-  font-size: 0.8rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--main-color);
-}
-
-.table-dashboard {
-  border-collapse: collapse;
-}
-thead tr {
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-thead td {
-  font-weight: 700;
-}
-
-td {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  color: #222;
-}
-td .status {
-  display: inline-block;
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  margin-right: 1rem;
-}
-tr td:last-child {
-  display: flex;
-  align-items: center;
-}
-
-.status.purple {
-  background-color: rebeccapurple;
-}
-
-.status.pink {
-  background-color: deeppink;
-}
-
-.status.orange {
-  background-color: orangered;
-}
-
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.customer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0.7rem;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-}
-
-.info img {
-  border-radius: 50%;
-  margin-right: 1rem;
-}
-
-.info h4 {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #222;
-}
-
-.info small {
-  font-weight: 600;
-  color: var(--text-grey);
-}
-
-.contact span {
-  font-size: 1.2rem;
-  display: inline-block;
-  margin-left: 0.5rem;
-  color: var(--main-color);
-}
 
 @media only screen and (max-width: 960px) {
   .cards {
