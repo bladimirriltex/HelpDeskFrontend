@@ -105,7 +105,7 @@ export default {
 </script>
 
 <style >
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 
 :root {
   --main-color: #B50D30;
@@ -113,14 +113,7 @@ export default {
   --text-grey: #8390a2;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  list-style-type: none;
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
-}
+
 
 img {
   object-fit: cover;

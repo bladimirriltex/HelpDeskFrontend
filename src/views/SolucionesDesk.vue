@@ -1,6 +1,7 @@
 <template>
+  <div>
     <main class="main container">
-      <div class="card knowled hvr-float">
+      <div class="card knowled float">
         <img src="@/assets/img/base.png" alt="" />
         <h2>Knowledge Base</h2>
         <p>
@@ -9,7 +10,7 @@
         </p>
       </div>
 
-      <div class="card faqs hvr-float">
+      <div class="card faqs float">
         <img src="@/assets/img/question.png" alt="" />
         <h2>FAQs</h2>
         <p>
@@ -18,7 +19,7 @@
         </p>
       </div>
 
-      <div class="card more-questions hvr-float">
+      <div class="card more-questions float">
         <img src="@/assets/img/sms.png" alt="" />
         <h2>More Questions?</h2>
         <p>
@@ -27,13 +28,16 @@
         </p>
       </div>
     </main>
+  </div>
 </template>
 <script>
-</script>
-<style >
-.hero-container{
-    height: 230px;
+export default{
+  name:"SolucionesDesk",
 }
+</script>
+
+<style >
+
 
 .main {
   padding: 50px;
@@ -53,7 +57,6 @@
   align-items: center;
   cursor: pointer;
 }
-
 
 .main .card img {
   width: 50px;
@@ -83,4 +86,22 @@
   background-color: #d01a49;
 }
 
+
+.float {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.float:hover, .float:focus, .float:active {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
 </style>

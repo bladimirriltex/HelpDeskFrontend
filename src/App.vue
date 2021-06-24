@@ -5,15 +5,18 @@
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
   font-size: 62.5%;
-  font-family: "Lato", sans-serif;
 }
 /* img {
   width: 100%;

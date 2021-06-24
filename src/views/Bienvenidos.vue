@@ -1,32 +1,23 @@
 <template>
   <div>
     <NavWeb />
-    <HeroLayout  />
-    <template>
-      <router-view />
-    </template>
+    <MainBienvenidos/>
     <Footer />
   </div>
 </template>
-
 <script>
 import NavWeb from "@/components/NavWeb.vue";
-import HeroLayout from "@/components/HeroLayout.vue";
+import MainBienvenidos from "@/components/MainBienvenidos.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
-  name: "DeskWeb",
+  name: "Bienvenidos",
   components: {
     NavWeb,
-    HeroLayout,
+    MainBienvenidos,
     Footer,
   },
 };
 </script>
 <style>
-:root {
-  --red-utp: #b50d30;
-  --black: #000;
-  --white: #fff;
-}
 </style>
