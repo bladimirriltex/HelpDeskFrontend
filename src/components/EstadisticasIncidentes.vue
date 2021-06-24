@@ -3,7 +3,7 @@
           <div class="card-single">
             <div>
               <h1>54</h1>
-              <span>Customers</span>
+              <span>Incidentes por día</span>
             </div>
             <div>
               <span class="las la-users"></span>
@@ -13,7 +13,7 @@
           <div class="card-single">
             <div>
               <h1>79</h1>
-              <span>Projects</span>
+              <span>incidentes resueltos del día</span>
             </div>
             <div>
               <span class="las la-clipboard"></span>

@@ -9,11 +9,11 @@
           />
         </div>
         <ul>
-          <li><router-link to="/"><i class="las la-home"></i>Homepage</router-link></li>
+          <li><router-link to="/"><i class="las la-home"></i>Página de Inicio</router-link></li>
           <li><router-link to="/soluciones"><i class="las la-scroll"></i>Soluciones</router-link></li>
           <li><router-link to="dashboard" ><i class="las la-newspaper"></i>Incidentes</router-link></li>
-          <li><router-link to="/"><i class="las la-calendar-alt"></i>Events</router-link></li>
-          <li><router-link to="/login"><i class="las la-user-alt"></i>Iniciar Sesion</router-link></li>
+          <li><router-link to="/"><i class="las la-calendar-alt"></i>Eventos</router-link></li>
+          <li><router-link to="/login"><i class="las la-user-alt"></i>Iniciar Sesión</router-link></li>
         </ul>
       </nav>
     </div>
@@ -21,20 +21,20 @@
     <div class="hero">
       <section class="hero-container container">
         <div class="hero-description">
-          <h1>Welcome to our Online Helpdesk</h1>
-          <p>A modern, Responsive Helpdesk</p>
+          <h1>Bienvenido a la Mesa de Ayuda en Linea UTP</h1>
+          <p>Una nueva Mesa de Aydua</p>
         </div>
         <div class="quick-links">
           <div class="card-links">
-            <div class="card-head">Quick links</div>
+            <div class="card-head">Soluciones Rápidas</div>
             <div class="card-content">
-              <p>How to add profile photo</p>
+              <p>Como añadir una foto de perfil</p>
             </div>
             <div class="card-content">
-              <p>How to add profile photo</p>
+              <p>Como añadir una foto de perfil</p>
             </div>
             <div class="card-content">
-              <p>How to add profile photo</p>
+              <p>Como añadir una foto de perfil</p>
             </div>
           </div>
         </div>
@@ -49,24 +49,24 @@
       <div class="container">
         <div class="contact-support">
           <div class="schedule">
-            <h2>Contact our Support Helpdesk</h2>
-            <p>You can contact us Monday - Saturday from 9:00 AM to 6:00 PM</p>
+            <h2>Contacte con nuestro Soporte de la Mesa de Ayuda</h2>
+            <p>Usted puede contactarnos de Lunes a Sabado desde 9:00 AM hasta 6:00 PM</p>
           </div>
 
           <div class="contacts">
             <div class="card-contact">
-              <h3>General question</h3>
-              <h2>View FAQs</h2>
+              <h3>Pregunta General</h3>
+              <h2>Ver Preguntas Frecuentes</h2>
             </div>
 
             <div class="card-contact">
-              <h3>Contac By Phone</h3>
+              <h3>Contacto vía Telefónica</h3>
               <h2>+51 946 125 648</h2>
             </div>
 
             <div class="card-contact">
-              <h3>Contact By mail</h3>
-              <h2>Send us an Email</h2>
+              <h3>Contacto vía Correo</h3>
+              <h2>Envíanos un Correo</h2>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
     <footer>
       <div class="container">
         <p>
-          Copyright © Helpdesk - Utepinos: Baiabaia, Alejandrodx y Riltex  🗂🛠
+          Copyright © Helpdesk - Utepinos: BaiaBaia, Alejandrodx y Riltex  🗂🛠
         </p> 
       </div>
     </footer>
