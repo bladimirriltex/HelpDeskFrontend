@@ -3,30 +3,31 @@
     <input type="checkbox" id="nav-toggle" />
     <div class="sidebar">
       <div class="sidebar-brand">
-        <h2><span class="lab la-accusoft"></span><span>UTP</span></h2>
+        <img src="@/assets/img/utp-logo.png" alt="" />
       </div>
 
       <div class="sidebar-menu">
         <ul>
           <li>
             <a href="" class="active"
-              ><span class="las la-igloo"></span><span>Tablero</span></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><span class="las la-users"></span><span>Clientes</span></a
-            >
-          </li>
-          <li>
-            <a href=""
               ><span class="las la-clipboard-list"></span
-              ><span>Proyectos</span></a
+              ><span>Tablero</span></a
             >
           </li>
           <li>
             <a href=""
-              ><span class="las la-shopping-bag"></span><span>Ordenes</span></a
+              ><span class="las la-users"></span><span>Usuarios</span></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-exclamation-triangle"></span
+              ><span>Incidentes</span></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-laptop-code"></span><span>Ordenes</span></a
             >
           </li>
           <li>
@@ -52,36 +53,29 @@
         <h3>
           <label for="nav-toggle">
             <span class="las la-bars"></span>
+            Tablero
           </label>
-          Tablero
         </h3>
-
-        <div class="search-wrapper">
-          <span class="las la-search"></span>
-          <input type="search" placeholder="Search here" />
-        </div>
 
         <div class="user-wrapper">
           <img
-            src="../assets/img/person.jpg"
+            src="../assets/img/perfil.jpeg"
             width="40px"
             height="30px"
             alt=""
           />
           <div>
-            <h4>Edu Mollo</h4>
+            <h3>Edu Mollo Collanqui</h3>
             <small>Super Admin</small>
           </div>
         </div>
       </header>
 
       <main class="main-dashboard">
-        
-        <EstadisticasIncidentes/>
+        <EstadisticasIncidentes />
         <div class="recent-grid">
-          <TablaIncidentes/>
-          <Cliente/>
-          
+          <TablaIncidentes />
+          <Cliente />
         </div>
       </main>
     </div>
@@ -89,38 +83,33 @@
 </template>
 
 <script scope>
-import EstadisticasIncidentes from '@/components/EstadisticasIncidentes.vue';
-import TablaIncidentes from '@/components/TablaIncidentes.vue';
-import Cliente from '@/components/Cliente'; 
+import EstadisticasIncidentes from "@/components/EstadisticasIncidentes.vue";
+import TablaIncidentes from "@/components/TablaIncidentes.vue";
+import Cliente from "@/components/Cliente";
 
 export default {
-  name:"DashboardHelDesk",
-  components:{
+  name: "DashboardHelDesk",
+  components: {
     EstadisticasIncidentes,
     TablaIncidentes,
-    Cliente
-  }
-
+    Cliente,
+  },
 };
 </script>
 
 <style >
-
-
 :root {
-  --main-color: #B50D30;
+  --main-color: #b50d30;
   --color-dark: #1d2231;
   --text-grey: #8390a2;
 }
-
-
 
 img {
   object-fit: cover;
 }
 
 .sidebar {
-  width: 345px;
+  width: 250px;
   position: fixed;
   left: 0;
   top: 0;
@@ -134,10 +123,13 @@ img {
   height: 98px;
   padding-left: 1rem 0rem 1rem 2rem;
   color: #fff;
+  display: flex;
+  justify-content: center;
 }
-.sidebar-brand span {
-  display: inline-block;
-  padding-right: 1rem;
+
+.sidebar-brand img {
+  width: 50%;
+  object-fit: contain;
 }
 
 .sidebar-menu {
@@ -152,21 +144,29 @@ img {
 
 .sidebar-menu a {
   padding-left: 1rem;
+  padding: 8px 10px;
   display: block;
   color: #fff;
   font-size: 1.8rem;
 }
 
-.sidebar-menu a.active {
+.sidebar-menu a:active {
   background: #fff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: var(--main-color);
   border-radius: 30px 0 0 30px;
 }
+.sidebar-menu a:hover {
+  background: #fff;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  color: var(--main-color);
+  border-radius: 30px 0 0 30px;
+}
 
 .sidebar-menu a span:first-child {
-  font-size: 2rem;
+  font-size: 2.8rem;
   padding-right: 1rem;
 }
 
@@ -198,7 +198,7 @@ img {
 
 .main-content {
   transition: margin-left 300ms;
-  margin-left: 345px;
+  margin-left: 250px;
 }
 
 header {
@@ -208,11 +208,12 @@ header {
   padding: 1rem 1.5rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
-  left: 345px;
-  width: calc(100% - 345px);
+  left: 250px;
+  width: calc(100% - 250px);
   top: 0;
   z-index: 100;
   transition: left 300ms;
+  height: 65px;
 }
 
 #nav-toggle {
@@ -222,33 +223,17 @@ header {
 header h3 {
   color: #222;
   font-size: 2rem;
+  cursor: pointer;
+}
+header h3:hover {
+  color: rgb(211, 35, 35);
+  font-size: 2rem;
 }
 
 header label span {
   position: relative;
-  top:2.5px;
+  top: 2.5px;
   font-size: 3rem;
-}
-
-.search-wrapper {
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  overflow-x: hidden;
-}
-.search-wrapper span {
-  display: inline-block;
-  padding: 0rem 2rem;
-  font-size: 2rem;
-}
-
-.search-wrapper input {
-  height: 100%;
-  padding: 0.5rem;
-  border: none;
-  outline: none;
 }
 
 .user-wrapper {
@@ -257,23 +242,29 @@ header label span {
 }
 
 .user-wrapper img {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-right: 1rem;
+  object-fit: cover;
 }
 
-.user-wrapper small {
+.user-wrapper  small {
+  font-size: 1.3rem;
   display: inline-block;
   color: var(--text-grey);
 }
-
-.main-dashboard {
-  margin-top: 85px;
-  padding: 2rem 1.5rem;
-  background: #f1f5f9;
-  min-height: calc(100vh - 90px);
+.user-wrapper h3  {
+  font-size: 1.5rem;
 }
 
-
+.main-dashboard {
+  margin-top: 40px;
+  padding: 4rem 1.5rem;
+  background: #f1f5f9;
+  min-height: calc(100vh - 40px);
+  height: auto;
+}
 
 .recent-grid {
   margin-top: 3.5rem;
@@ -281,9 +272,6 @@ header label span {
   grid-gap: 2rem;
   grid-template-columns: 70% auto;
 }
-
-
-
 
 @media only screen and (max-width: 960px) {
   .cards {
@@ -296,6 +284,10 @@ header label span {
 }
 
 @media only screen and (max-width: 768px) {
+  .sidebar .sidebar-brand img {
+    display: none;
+  }
+
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -353,7 +345,7 @@ header label span {
   #nav-toggle:checked + .sidebar {
     left: 0 !important;
     z-index: 100;
-    width: 345px;
+    width: 250px;
   }
 
   #nav-toggle:checked + .sidebar .sidebar-brand,

@@ -3,40 +3,42 @@
           <div class="card-single">
             <div>
               <h1>54</h1>
-              <span>Incidentes por día</span>
+              <span>Incidentes sin resolver</span>
             </div>
             <div>
-              <span class="las la-users"></span>
+              <span class="las la-bomb" ></span>
             </div>
           </div>
 
           <div class="card-single">
             <div>
               <h1>79</h1>
-              <span>incidentes resueltos del día</span>
+              <span>incidentes resueltos</span>
             </div>
             <div>
-              <span class="las la-clipboard"></span>
+               
+              <span class="las la-check-circle" style="color:#22da22;"></span>
             </div>
           </div>
 
           <div class="card-single">
             <div>
               <h1>124</h1>
-              <span>Orders</span>
+              <span>Incidentes/día</span>
             </div>
             <div>
-              <span class="las la-shopping-bag"></span>
+              <span class="las la-bug" style="color:#0000009e"></span>
             </div>
           </div>
 
           <div class="card-single">
             <div>
-              <h1>$6K</h1>
-              <span>Income</span>
+              <h1>653</h1>
+              <span>Total de incidentes resueltos</span>
             </div>
             <div>
-              <span class="lab la-google-wallet"></span>
+                
+              <span class="las la-tools"></span>
             </div>
           </div>
         </div>
@@ -64,7 +66,7 @@ export default{
 }
 
 .card-single div:last-child span {
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--main-color);
 }
 

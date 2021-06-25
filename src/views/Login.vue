@@ -26,7 +26,7 @@
         </label>
 
         <div class="wrap-button">
-          <button>Ingresar</button>
+          <button>Ingresar </button>
         </div>
       </form>
     </div>

@@ -2,13 +2,13 @@
   <div class="customers">
     <div class="card">
       <div class="card-header">
-        <h3>New Customers</h3>
-        <button>See all <span class="las la-arrow-right"></span></button>
+        <h3>Usuarios con incidentes</h3>
+        <button>Ver todos<span class="las la-arrow-right"></span></button>
       </div>
       <div class="card-body">
         <div class="customer">
           <div class="info">
-            <img src="../assets/img/person.jpg" width="40px" height="40px" />
+            <img src="../assets/img/perfil.jpeg" width="40px" height="40px" />
             <div class="">
               <h4>Lewis 5. cumeus</h4>
               <small>CEO Excerpt</small>
@@ -73,12 +73,14 @@ export default {
 }
 
 .info img {
+   width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-right: 1rem;
 }
 
 .info h4 {
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #222;
 }
@@ -89,7 +91,7 @@ export default {
 }
 
 .contact span {
-  font-size: 1.2rem;
+  font-size: 2rem;
   display: inline-block;
   margin-left: 0.5rem;
   color: var(--main-color);
