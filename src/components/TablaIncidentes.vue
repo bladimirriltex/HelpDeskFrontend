@@ -3,6 +3,12 @@
     <div class="card">
       <div class="card-header">
         <h2>Incidentes Recientes</h2>
+        <button class="btn-utp" id="show-modal" @click="showModal = true"><i class="las la-plus-circle"></i>Nuevo Incidente</button>
+
+        <Modal v-if="showModal" @close="showModal = false">
+          <RegistrarIncidente slot="body" style="width: 90%" />
+           
+        </Modal>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -47,13 +53,18 @@
 </template>
 <script>
 import axios from "axios";
-
+import Modal from "@/components/Modal.vue";
+import RegistrarIncidente from "@/components/RegistrarIncidente.vue";
 export default {
   name: "TablaIncidentes",
-  components: {},
+  components: {
+    Modal,
+    RegistrarIncidente
+  },
   data() {
     return {
       incidentes: [],
+      showModal:false,
     };
   },
   methods: {
@@ -160,4 +171,24 @@ tr td:last-child {
   width: 100%;
   overflow-x: auto;
 }
+
+ .btn-utp {
+  background: #fff;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  color:var(--main-color);
+  font-weight:600;
+  padding: 0.5rem 1rem;
+  border: 2.5px solid var(--main-color);
+}
+ .btn-utp:hover {
+  background: rgb(196, 68, 68);
+  font-size: 1.2rem;
+  border-radius: 10px;
+  color:#fff;
+  font-weight:600;
+  padding: 0.5rem 1rem;
+  border: 2.5px solid #555;
+}
+ 
 </style>

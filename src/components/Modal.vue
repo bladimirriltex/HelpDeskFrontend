@@ -3,9 +3,9 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header"> default header </slot>
-          </div>
+           <div class="modal-header">
+            <slot name="header"> <button type="button" class="btn-close" aria-label="Close" @click="$emit('close')"></button> </slot>
+          </div> 
 
           <div class="modal-body">
            <center> <slot name="body"> default body </slot></center>
@@ -13,9 +13,9 @@
 
           <div class="modal-footer">
             <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
+ 
+              <button class="btn-utp modal-default-button" @click="$emit('close')">
+                Cerrar
               </button>
             </slot>
           </div>
@@ -53,7 +53,7 @@ export default {
 .modal-container {
    
   min-width: 250px;
-  max-width: 700px;
+  max-width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -63,6 +63,9 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.modal-header + .modal-footer{
+    border: none !important;
+}
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
