@@ -29,10 +29,11 @@ const routes = [
         component: ()=> import(/* webpackChunkName: "Soluciones" */ '../views/SolucionesDesk.vue')
       },
       {
-        path:"articulo-incidente",
-        name:"articuloincidente",
+        path:"articulo",
+        name:"articulo",
         component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/ArticuloIncidentes.vue')
-      }
+      },
+      
     ]
   },
 
@@ -40,12 +41,39 @@ const routes = [
     path:"/dashboard",
     name:"dashboard",
     component: ()=> import(/* webpackChunkName: "Incidentes" */ '../Layouts/DashboardHelpDesk.vue'),
+    children:[
+      {
+        path:"",
+        name:"tablero",
+        component: ()=> import(/* webpackChunkName: "Usuarios"*/'../views/Tablero.vue')
+      },
+      {
+        path:"/usuarios",
+        name:"usuarios",
+        component: ()=> import(/* webpackChunkName: "Usuarios"*/'../views/Usuarios.vue')
+      },
+      {
+        path:"/incidentes/",
+        name:"incidentes",
+        component: ()=> import(/* webpackChunkName: "Incidentes"*/'../components/TablaIncidentes.vue'),
+        
+      },
+      {
+        path:"/incidentes/:incidente",
+        name:"incidente",
+        props:true,
+        component: ()=> import(/* webpackChunkName: "VerIncidente"*/'../views/Incidente.vue')
+
+      }
+     
+    ]
   },
   {
     path:"/login",
     name:"login",
-    component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/Login.vue'),
-  }
+    component: ()=> import(/* webpackChunkName: "Login" */ '../views/Login.vue'),
+  },
+  
 ]
 
 const router = new VueRouter({

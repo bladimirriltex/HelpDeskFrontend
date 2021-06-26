@@ -1,7 +1,6 @@
 <template>
   <div>
     <NavWeb />
-    <HeroLayout  />
     <template>
       <router-view />
     </template>
@@ -11,14 +10,13 @@
 
 <script>
 import NavWeb from "@/components/NavWeb.vue";
-import HeroLayout from "@/components/HeroLayout.vue";
+
 import Footer from "@/components/Footer.vue";
 
 export default {
   name: "DeskWeb",
   components: {
     NavWeb,
-    HeroLayout,
     Footer,
   },
 };

@@ -3,66 +3,40 @@
     <div class="card">
       <div class="card-header">
         <h2>Incidentes Recientes</h2>
-        <button>Ver todos <span class="las la-arrow-right"></span></button>
-        
-
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table-dashboard" width="100%">
             <thead>
-              <td>Nombre</td>
-              <td>Departamento</td>
+              <td>Descripcion</td>
+              <td>Usuario</td>
+              <td>Servicio</td>
+              <td>Canal</td>
               <td>Estado</td>
+              <td>Acciones</td>
             </thead>
             <tbody>
-              <tr>
-                <td>UI/UX Design</td>
-                <td>UI team</td>
-                <td><span class="status purple"></span> review</td>
-              </tr>
-              <tr>
-                <td>Web develoment</td>
-                <td>Frontend</td>
-                <td><span class="status pink"></span> in progress</td>
-              </tr>
-
-              <tr>
-                <td>Ushop app</td>
-                <td>Mobile team</td>
-                <td><span class="status orange"></span> review</td>
-              </tr>
-              <tr>
-                <td>UI/UX Design</td>
-                <td>UI team</td>
-                <td><span class="status purple"></span> review</td>
-              </tr>
-              <tr>
-                <td>Web develoment</td>
-                <td>Frontend</td>
-                <td><span class="status pink"></span> in progress</td>
-              </tr>
-
-              <tr>
-                <td>Ushop app</td>
-                <td>Mobile team</td>
-                <td><span class="status orange"></span> review</td>
-              </tr>
-              <tr>
-                <td>UI/UX Design</td>
-                <td>UI team</td>
-                <td><span class="status purple"></span> review</td>
-              </tr>
-              <tr>
-                <td>Web develoment</td>
-                <td>Frontend</td>
-                <td><span class="status pink"></span> in progress</td>
-              </tr>
-
-              <tr>
-                <td>Ushop app</td>
-                <td>Mobile team</td>
-                <td><span class="status orange"></span> review</td>
+              <tr
+                class="tr-row"
+                v-for="aux in incidentes"
+                :key="aux.id"
+                @click="getIncidente()"
+                :props="aux"
+              >
+                <td>{{ aux.Nombre }}</td>
+                <td>{{ aux.Usuario_Cliente.Nombre }}</td>
+                <td>{{ aux.Servicio.Nombre }}</td>
+                <td>{{ aux.Canal.Nombre }}</td>
+                <td>{{ aux.Status.Nombre }}</td>
+                <td class="accion">
+                  <router-link
+                    :to="{
+                      name: 'incidente',
+                      params: { incidente: aux.id.toString() },
+                    }"
+                    ><i class="lar la-eye"></i><span>Ver</span></router-link
+                  >
+                </td>
               </tr>
             </tbody>
           </table>
@@ -72,17 +46,47 @@
   </div>
 </template>
 <script>
- 
+import axios from "axios";
+
 export default {
   name: "TablaIncidentes",
-  data () {
-      return {
-        dialog: false,
+  components: {},
+  data() {
+    return {
+      incidentes: [],
+    };
+  },
+  methods: {
+    getIncidente() {},
+  },
+  async created() {
+    let res = await axios.get("http://127.0.0.1:8000/api/incidente");
+    console.log(res);
+    if (res.status == 200) {
+      for (let incidente of res.data.data) {
+        console.log(incidente);
+        this.incidentes.push(incidente);
       }
-    },
+    }
+
+    console.log(res.status);
+  },
 };
 </script>
 <style>
+.main-dashboard {
+  margin-top: 40px;
+  padding: 4rem 1.5rem;
+  background: #f1f5f9;
+  min-height: calc(100vh - 40px);
+  height: auto;
+}
+.recent-grid {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 100%;
+}
 .card {
   background: #fff;
   border-radius: 5px;
@@ -99,20 +103,11 @@ export default {
   align-items: center;
   border-bottom: 1px solid #f0f0f0;
 }
-.card-header button {
-  background: var(--main-color);
-  border-radius: 10px;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--main-color);
-}
 
 .table-dashboard {
   border-collapse: collapse;
 }
-thead tr {
-  border-top: 1px solid #f0f0f0;
+.table-dashboard thead td {
   border-bottom: 2px solid #f0f0f0;
 }
 
@@ -121,7 +116,7 @@ thead td {
 }
 
 td {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 3em;
   font-size: 1.3rem;
   color: #222;
 }
@@ -135,6 +130,18 @@ td .status {
 tr td:last-child {
   display: flex;
   align-items: center;
+}
+.tr-row {
+  border-bottom: 1px solid #22202029;
+}
+.tr-row .accion a {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+.tr-row .accion a:hover {
+  background-color: #000;
 }
 
 .status.purple {

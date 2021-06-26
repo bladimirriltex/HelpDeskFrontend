@@ -12,7 +12,7 @@
           <li><router-link to="/"><i class="las la-home"></i>Página de Inicio</router-link></li>
           <li><router-link to="/soluciones"><i class="las la-scroll"></i>Soluciones</router-link></li>
           <li><router-link to="dashboard" ><i class="las la-newspaper"></i>Incidentes</router-link></li>
-          <li><router-link to="/"><i class="las la-calendar-alt"></i>Eventos</router-link></li>
+          <li><router-link to="/articulo"><i class="las la-calendar-alt"></i>Articulos</router-link></li>
           <li><router-link to="/login"><i class="las la-user-alt"></i>Iniciar Sesión</router-link></li>
         </ul>
       </nav>

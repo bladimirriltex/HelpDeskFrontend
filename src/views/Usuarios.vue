@@ -2,8 +2,7 @@
   <div class="customers">
     <div class="card">
       <div class="card-header">
-        <h3>Usuarios con incidentes</h3>
-        <button>Ver todos<span class="las la-arrow-right"></span></button>
+        <h2>Usuarios</h2>
       </div>
       <div class="card-body">
         <div class="customer">
@@ -60,6 +59,11 @@ export default {
 };
 </script>
 <style>
+.customers{
+  width: 80%;
+  margin: auto;
+}
+
 .customer {
   display: flex;
   justify-content: space-between;
@@ -73,7 +77,7 @@ export default {
 }
 
 .info img {
-   width: 50px;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 1rem;

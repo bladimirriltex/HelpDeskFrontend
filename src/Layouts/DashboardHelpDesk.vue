@@ -9,41 +9,45 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="" class="active"
-              ><span class="las la-clipboard-list"></span
-              ><span>Tablero</span></a
-            >
+            <router-link to="/dashboard">
+              <span class="las la-clipboard-list"></span><span>Tablero</span>
+            </router-link>
           </li>
           <li>
-            <a href=""
-              ><span class="las la-users"></span><span>Usuarios</span></a
-            >
+            <router-link to="/usuarios">
+              <span class="las la-users"></span><span>Usuarios</span>
+            </router-link>
           </li>
           <li>
-            <a href=""
-              ><span class="las la-exclamation-triangle"></span
-              ><span>Incidentes</span></a
-            >
+            <router-link to="/incidentes">
+              <span class="las la-exclamation-triangle"></span
+              ><span>Incidentes</span>
+            </router-link>
+             
           </li>
           <li>
-            <a href=""
-              ><span class="las la-laptop-code"></span><span>Ordenes</span></a
-            >
+            <router-link to="/dashboard">
+              <span class="las la-laptop-code"></span><span>Ordenes</span>
+            </router-link>
+            
           </li>
           <li>
-            <a href=""
-              ><span class="las la-receipt"></span><span>Inventario</span></a
-            >
+            <router-link to="/dashboard">
+              <span class="las la-receipt"></span><span>Inventario</span>
+            </router-link>
+            
           </li>
           <li>
-            <a href=""
-              ><span class="las la-user-circle"></span><span>Cuentas</span></a
-            >
+            <router-link to="/dashboard">
+              <span class="las la-user-circle"></span><span>Cuentas</span>
+            </router-link>
+            
           </li>
           <li>
-            <a href=""
-              ><span class="las la-clipboard-list"></span><span>Tareas</span></a
-            >
+            <router-link to="/dashboard">
+              <span class="las la-clipboard-list"></span><span>Tareas</span>
+            </router-link>
+             
           </li>
         </ul>
       </div>
@@ -53,7 +57,6 @@
         <h3>
           <label for="nav-toggle">
             <span class="las la-bars"></span>
-            Tablero
           </label>
         </h3>
 
@@ -72,10 +75,8 @@
       </header>
 
       <main class="main-dashboard">
-        <EstadisticasIncidentes />
         <div class="recent-grid">
-          <TablaIncidentes />
-          <Cliente />
+          <router-view/>
         </div>
       </main>
     </div>
@@ -83,16 +84,11 @@
 </template>
 
 <script scope>
-import EstadisticasIncidentes from "@/components/EstadisticasIncidentes.vue";
-import TablaIncidentes from "@/components/TablaIncidentes.vue";
-import Cliente from "@/components/Cliente";
 
 export default {
   name: "DashboardHelDesk",
   components: {
-    EstadisticasIncidentes,
-    TablaIncidentes,
-    Cliente,
+    
   },
 };
 </script>
@@ -249,12 +245,12 @@ header label span {
   object-fit: cover;
 }
 
-.user-wrapper  small {
+.user-wrapper small {
   font-size: 1.3rem;
   display: inline-block;
   color: var(--text-grey);
 }
-.user-wrapper h3  {
+.user-wrapper h3 {
   font-size: 1.5rem;
 }
 
@@ -270,7 +266,7 @@ header label span {
   margin-top: 3.5rem;
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: 70% auto;
+  grid-template-columns: 100%;
 }
 
 @media only screen and (max-width: 960px) {
@@ -279,7 +275,7 @@ header label span {
   }
 
   .recent-grid {
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 98%;
   }
 }
 

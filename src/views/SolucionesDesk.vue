@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HeroLayout  />
     <main class="main container">
       <div class="card knowled float">
         <img src="@/assets/img/base.png" alt="" />
@@ -31,8 +32,12 @@
   </div>
 </template>
 <script>
+import HeroLayout from "@/components/HeroLayout.vue";
 export default{
   name:"SolucionesDesk",
+  components:{
+    HeroLayout, 
+  },
 }
 </script>
 
