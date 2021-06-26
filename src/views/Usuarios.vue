@@ -4,13 +4,13 @@
       <div class="card-header">
         <h2>Usuarios</h2>
       </div>
-      <div class="card-body">
-        <div class="customer">
+      <div class="card-body" >
+        <div class="customer" v-for="usuariosCliente in usuariosClientes" :key="usuariosCliente.id">
           <div class="info">
             <img src="../assets/img/perfil.jpeg" width="40px" height="40px" />
             <div class="">
-              <h4>Lewis 5. cumeus</h4>
-              <small>CEO Excerpt</small>
+              <h4>{{ usuariosCliente.Nombre}} {{ usuariosCliente.Apellidos }}</h4>
+              <small>{{ usuariosCliente.Rol.Nombre }}</small>
             </div>
           </div>
           <div class="contact">
@@ -20,42 +20,30 @@
           </div>
         </div>
 
-        <div class="customer">
-          <div class="info">
-            <img src="../assets/img/person.jpg" width="40px" height="40px" />
-            <div class="">
-              <h4>Lewis 5. cumeus</h4>
-              <small>CEO Excerpt</small>
-            </div>
-          </div>
-          <div class="contact">
-            <span class="las la-user-circle"></span>
-            <span class="las la-comment"></span>
-            <span class="las la-phone"></span>
-          </div>
-        </div>
-
-        <div class="customer">
-          <div class="info">
-            <img src="../assets/img/person.jpg" width="40px" height="40px" />
-            <div class="">
-              <h4>Lewis 5. cumeus</h4>
-              <small>CEO Excerpt</small>
-            </div>
-          </div>
-          <div class="contact">
-            <span class="las la-user-circle"></span>
-            <span class="las la-comment"></span>
-            <span class="las la-phone"></span>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "Cliente",
+  data() {
+    return{
+      usuariosClientes:[]
+    }
+  },
+  methods:{
+
+  },
+
+  async created(){
+    let res= await axios.get("http://127.0.0.1:8000/api/usuario_cliente");
+    this.usuariosClientes=res.data.data;
+    console.log(res)
+  }
+
 };
 </script>
 <style>

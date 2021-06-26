@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
 
   {
-    path: '/',
+    path: '',
     name: 'deskweb',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -24,14 +24,26 @@ const routes = [
     component: () => import(/* webpackChunkName: "PortalWeb" */ '../Layouts/DeskWeb.vue'),
     children:[
       {
-        path:"soluciones",
+        path:"/soluciones",
         name:"soluciones",
         component: ()=> import(/* webpackChunkName: "Soluciones" */ '../views/SolucionesDesk.vue')
       },
       {
-        path:"articulo",
+        path:"/articulosol",
+        name:"articulosolucion",
+        component: ()=> import(/* webpackChunkName: "ArticuloSolucion"*/'../views/SolucionArticulo.vue')
+      },
+      {
+        path:"/articulo",
         name:"articulo",
-        component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/ArticuloIncidentes.vue')
+        component: ()=> import(/* webpackChunkName: "Incidentes" */ '../views/ArticuloIncidentes.vue'),
+        children:[
+          {
+            path:"/articulosol",
+            name:"articulosolucion",
+            component: ()=> import(/* webpackChunkName: "ArticuloSolucion"*/'../views/SolucionArticulo.vue')
+          }
+        ]
       },
       
     ]

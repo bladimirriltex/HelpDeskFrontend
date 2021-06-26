@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
-    <form @submit.prevent="registrarIncidente()" class=" ">
-      <h2 class="fs-1">Resgistrar incidente</h2>
+    <form @submit.prevent="registrarIncidente()" class="">
+      <h2 class="fs-1">Resgistrar Incidente</h2>
       <div class="mb-3">
         <input v-model="nombreIncidente"
           type="text"
@@ -115,30 +115,25 @@
       </div>
 
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label"
-          >Descripcion</label
-        >
+        <label for="exampleFormControlTextarea1" class="form-label">Describenos mas del incidente</label>
         <textarea
           v-model="descripcion"
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="4"
         ></textarea>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">Adjuntar archivo</label>
-
+        <div class="my-3">
           <input
             type="file"
             @change="previewFiles"
             multiple
             class="form-control"
-            id="formFile"
+            id="formFile"   
           />
         </div>
       </div>
       <center>
         <input type="submit" class="btn btn-dark" style="width: 80%" value="Registrar">
-          
       </center>
     </form>
   </div>

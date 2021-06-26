@@ -33,7 +33,16 @@
                 <td>{{ aux.Usuario_Cliente.Nombre }}</td>
                 <td>{{ aux.Servicio.Nombre }}</td>
                 <td>{{ aux.Canal.Nombre }}</td>
-                <td>{{ aux.Status.Nombre }}</td>
+                <td style="width: 18%;">
+                   <div>
+                      <span v-if="aux.Status.id===1" class="status pendiente"></span>
+                      <span v-if="aux.Status.id===2" class="status progreso"></span>
+                      <span v-if="aux.Status.id===3" class="status presencial"></span>
+                      <span v-if="aux.Status.id===4" class="status resuelto"></span>
+                   {{ aux.Status.Nombre }}
+                   </div>
+                  
+                  </td>
                 <td class="accion">
                   <router-link
                     :to="{
@@ -138,6 +147,7 @@ td .status {
   border-radius: 50%;
   margin-right: 1rem;
 }
+
 tr td:last-child {
   display: flex;
   align-items: center;
@@ -155,16 +165,20 @@ tr td:last-child {
   background-color: #000;
 }
 
-.status.purple {
-  background-color: rebeccapurple;
+
+.status.resuelto {
+  background-color: rgb(51, 165, 121);
 }
 
-.status.pink {
-  background-color: deeppink;
+.status.pendiente {
+  background-color: rgb(211, 21, 37);
 }
 
-.status.orange {
-  background-color: orangered;
+.status.progreso {
+  background-color: rgb(238, 150, 17);
+}
+.status.presencial {
+  background-color: rgb(128, 0, 255);
 }
 
 .table-responsive {
