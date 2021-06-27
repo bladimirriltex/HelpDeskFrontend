@@ -3,7 +3,8 @@
     <form @submit.prevent="registrarIncidente()" class="">
       <h2 class="fs-1">Resgistrar Incidente</h2>
       <div class="mb-3">
-        <input v-model="nombreIncidente"
+        <input
+          v-model="nombreIncidente"
           type="text"
           class="form-control"
           id="exampleFormControlInput1"
@@ -13,12 +14,14 @@
 
       <div class="row my-2">
         <div class="col-6">
+          <label for="servicio">¿Que servicio?</label>
           <select
             v-model="servicio"
             class="form-select"
             aria-label="Default select example"
+            id="servicio"
           >
-            <option selected>¿Que servicio?</option>
+            
             <option
               v-for="servicio in servicios"
               :value="servicio.id"
@@ -29,12 +32,12 @@
           </select>
         </div>
         <div class="col-6">
+          <label for="servicio">¿Que tipo?</label>
           <select
             v-model="tipoIncidente"
             class="form-select"
             aria-label="Default select example"
           >
-            <option selected>¿Que tipo?</option>
             <option
               v-for="tipo in tiposIncidentes"
               :value="tipo.id"
@@ -47,12 +50,13 @@
       </div>
       <div class="row my-2">
         <div class="col-6">
+           <label for="servicio">¿Que canal?</label>
           <select
             v-model="canal"
             class="form-select"
             aria-label="Default select example"
           >
-          <option selected>¿Que canal?</option>
+ 
             <option
               v-for="canal in canales"
               v-bind:value="canal.id"
@@ -63,12 +67,14 @@
           </select>
         </div>
         <div class="col-6">
+
+          <label for="servicio">¿Que nivel?</label>
           <select
             v-model="nivel"
             class="form-select"
             aria-label="Default select example"
           >
-         <option selected>¿Que nivel?</option>
+ 
             <option
               v-for="nivel in niveles"
               v-bind:value="nivel.id"
@@ -81,12 +87,12 @@
       </div>
       <div class="row my-2">
         <div class="col-6">
+          <label for="servicio">¿Estado?</label>
           <select
             v-model="estado"
             class="form-select"
             aria-label="Default select example"
           >
-            <option selected>¿Estado?</option>
             <option
               v-for="estado in estados"
               v-bind:value="estado.id"
@@ -97,12 +103,13 @@
           </select>
         </div>
         <div class="col-6">
+          <label for="servicio">Asignar a...?</label>
           <select
             v-model="usuarioSoporte"
             class="form-select"
             aria-label="Default select example"
           >
-             <option selected>Asignar a...</option>
+ 
             <option
               v-for="usuario in usuariosDeSoporte"
               v-bind:value="usuario.id"
@@ -115,31 +122,40 @@
       </div>
 
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Describenos mas del incidente</label>
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Describenos mas del incidente</label
+        >
         <textarea
           v-model="descripcion"
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="4"
         ></textarea>
+        
         <div class="my-3">
           <input
             type="file"
             @change="previewFiles"
             multiple
             class="form-control"
-            id="formFile"   
+            id="formFile"
           />
         </div>
       </div>
       <center>
-        <input type="submit" class="btn btn-dark" style="width: 80%" value="Registrar">
+        <input
+          type="submit"
+          class="btn btn-dark"
+          style="width: 80%"
+          value="Registrar"
+        />
       </center>
     </form>
   </div>
 </template>
 <script>
 import axios from "axios";
+import moment from "moment";
 export default {
   name: "RegistrarIncidente",
   data() {
@@ -154,12 +170,12 @@ export default {
 
       //datamodel
       nombreIncidente: "",
-      servicio: "¿Que servicio?",
-      tipoIncidente: "¿Que tipo?",
-      canal: "¿Que canal?",
-      nivel: "¿Que nivel?",
-      estado: "¿Estado?",
-      usuarioSoporte: "Asignar a...",
+      servicio: "",
+      tipoIncidente: "",
+      canal: "",
+      nivel: "",
+      estado: "",
+      usuarioSoporte: "",
       descripcion: "",
       file: null,
     };
@@ -186,21 +202,30 @@ export default {
     //console.log(serviciosData,tiposIncidentesData,CanalesData,nivelesData,estadosData,usuario_soporte);
   },
   methods: {
-    registrarIncidente() {
-       
-      console.log(this.nombreIncidente);
-      console.log(this.servicio);
-      console.log(this.tipoIncidente);
-      console.log(this.canal);
-      console.log(this.nivel);
-      console.log(this.estado);
-      console.log(this.descripcion);
-      console.log(this.file);
+    async registrarIncidente() {
+      const incidente = {
+        Nombre: this.nombreIncidente,
+        Fecha_Inicio: moment().format("YYYY-MM-DD HH:MM:SS"),
+        Fecha_Fin: null,
+        Descripcion: this.descripcion,
+        Respuesta: null,
+        Archivo: this.file,
+        Id_Servicio: this.servicio,
+        Id_TipoIncidente: this.tipoIncidente,
+        Id_Canal: this.canal,
+        Id_NivelRiesgo: this.nivel,
+        Id_Status: 1,
+        Id_UsuarioCliente: 36,
+        Id_UsuarioSoporte: this.usuarioSoporte,
+      };
+      console.log(incidente);
+      let res = await axios.post("incidente", incidente);
+      console.log(res);
     },
 
     previewFiles(event) {
       this.file = event.target.files;
-      console.log(event.target.files);
+ 
     },
   },
 };

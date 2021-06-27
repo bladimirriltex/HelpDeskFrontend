@@ -9,39 +9,20 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <router-link to="/dashboard">
+            <router-link to="/dashboardusuario/tablero">
               <span class="las la-clipboard-list"></span><span>Tablero</span>
             </router-link>
           </li>
+
           <li>
-            <router-link to="/usuarios">
-              <span class="las la-users"></span><span>Usuarios</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/incidentes">
+            <router-link to="/dashboardusuario/incidentes">
               <span class="las la-exclamation-triangle"></span
               ><span>Incidentes</span>
             </router-link>
           </li>
           <li>
             <router-link to="/dashboard">
-              <span class="las la-laptop-code"></span><span>Ordenes</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/dashboard">
-              <span class="las la-receipt"></span><span>Inventario</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/dashboard">
-              <span class="las la-user-circle"></span><span>Cuentas</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/dashboard">
-              <span class="las la-clipboard-list"></span><span>Tareas</span>
+              <span class="las la-laptop-code"></span><span>Soluciones</span>
             </router-link>
           </li>
         </ul>
@@ -86,37 +67,30 @@
     </div>
   </div>
 </template>
-
-<script scope>
+<script>
 import axios from "axios";
 export default {
-  name: "DashboardHelDesk",
-  components: {},
-
+  name: "DashboardUser",
   data() {
-    return {};
+    return {
+
+    };
   },
   beforeCreate() {
     if (localStorage.getItem("token") === null) {
-      
       this.$router.push("/login");
     }
-    if(localStorage.getItem("tipoUsuario")==="cliente"){
-        this.$router.push("/dashboardusuario")
-      }
   },
-  async created() {},
   methods: {
     async logout() {
       const res = await axios.post("logout");
-      console.log(res)
+      console.log(res);
       localStorage.clear();
       this.$router.push("/");
     },
   },
 };
 </script>
-
 <style >
 :root {
   --main-color: #b50d30;

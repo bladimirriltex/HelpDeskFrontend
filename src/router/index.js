@@ -80,6 +80,19 @@ const routes = [
      
     ]
   },
+
+  {
+    path:"/dashboardusuario",
+    name:"dashboard",
+    component: ()=> import(/* webpackChunkName: "Incidentes" */ '../Layouts/DashboardUser.vue'),
+    children:[
+      {
+        path:"",
+        name:"tablaincidentesusuario",
+        component: ()=> import(/* webpackChunkName: "Usuarios"*/'../components/TablaincidentesUsuario.vue')
+      },     
+    ]
+  },
   {
     path:"/login",
     name:"login",
@@ -89,8 +102,14 @@ const routes = [
   {
     path:"/prueba",
     name:"prueba",
-    component: ()=> import(/* webpackChunkName: "Login" */ '../components/RegistrarIncidente.vue'),
+    component: ()=> import(/* webpackChunkName: "Login" */ '../Layouts/DashboardUser.vue'),
   },
+  {
+    path:"/404",
+    alias:"*",
+    name: "notFound",
+    component: ()=> import("../views/404Page.vue")
+  }
   
 ]
 
