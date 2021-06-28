@@ -16,9 +16,7 @@
           <table class="table-dashboard" width="100%">
             <thead>
               <td>Descripcion</td>
-              <td>Usuario</td>
               <td>Servicio</td>
-              <td>Canal</td>
               <td>Estado</td>
               <td>Acciones</td>
             </thead>
@@ -31,9 +29,9 @@
                 :props="aux"
               >
                 <td>{{ aux.Nombre }}</td>
-                <td>{{ aux.Usuario_Cliente.Nombre }}</td>
+
                 <td>{{ aux.Servicio.Nombre }}</td>
-                <td>{{ aux.Canal.Nombre }}</td>
+
                 <td style="width: 18%">
                   <div>
                     <span
@@ -58,7 +56,7 @@
                 <td class="accion">
                   <router-link
                     :to="{
-                      name: 'incidente',
+                      name: 'incidenteuser',
                       params: { incidente: aux.id.toString() },
                     }"
                     ><i class="lar la-eye"></i><span>Ver</span></router-link

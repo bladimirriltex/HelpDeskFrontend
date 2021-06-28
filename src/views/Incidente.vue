@@ -4,33 +4,61 @@
       <div class="col-6">
         <h3>Datos de Incidente</h3>
       </div>
-      <div class="col-6">
-        <button
-          v-if="dataIncidente.Status.id === 1"
-          class="btn btn-success float-end"
-        >
-          Solucionar
-        </button>
-        <button
-          v-if="dataIncidente.Status.id === 2"
-          class="btn btn-warning float-end"
-        >
-          Buscando Solucion
-        </button>
-        <button
-          v-if="dataIncidente.Status.id === 3"
-          class="btn btn-warning float-end"
-        >
-          Visita Presencial
-        </button>
-        <button
-          v-if="dataIncidente.Status.id === 4"
-          class="btn btn-dark float-end"
-          disabled
-        >
-          Resuelto
-        </button>
-      </div>
+          <div class="col-6" v-if="rolUsuario==='cliente'">
+            <button
+              v-if="dataIncidente.Status.id === 1"
+              class="btn btn-danger float-end" disabled
+            >
+              Sin Solucion
+            </button>
+            <button
+              v-if="dataIncidente.Status.id === 2"
+              class="btn btn-warning float-end" disabled
+            >
+              Buscando Solucion
+            </button>
+            <button
+              v-if="dataIncidente.Status.id === 3"
+              class="btn btn-warning float-end" disabled
+            >
+              Visita Presencial
+            </button>
+            <button
+              v-if="dataIncidente.Status.id === 4" 
+              class="btn btn-dark float-end"
+              disabled
+            >
+              Resuelto
+            </button>
+          </div>
+
+          <div class="col-6" v-if="rolUsuario !='cliente'">
+            <button
+              v-if="dataIncidente.Status.id === 1"
+              class="btn btn-success float-end" 
+            >
+              Solucionar
+            </button>
+            <button
+              v-if="dataIncidente.Status.id === 2"
+              class="btn btn-warning float-end" 
+            >
+              Buscando Solucion
+            </button>
+            <button
+              v-if="dataIncidente.Status.id === 3"
+              class="btn btn-warning float-end" 
+            >
+              Visita Presencial
+            </button>
+            <button
+              v-if="dataIncidente.Status.id === 4" 
+              class="btn btn-dark float-end"
+              disabled
+            >
+              Resuelto
+            </button>
+          </div>
     </div>
     <div class="contenedor col-12">
       <div class="fs-5">
@@ -172,6 +200,8 @@ export default {
       fechaFin:"",
       fechaInicio:"",
       file: null,
+
+      rolUsuario:"",
     };
   },
   methods: {},
@@ -182,7 +212,7 @@ export default {
     this.dataIncidente=res.data.data;
     console.log(this.dataIncidente)
     let resCargo=await axios.get("cargo/"+this.dataIncidente.Usuario_Soporte.Id_Cargo);
-    //let resRol=await axios.get("rol/"+this.dataIncidente.Usuario_Soporte.Id_Cargo)
+    let resRol=await axios.get("rol/"+localStorage.getItem("rol"))
     this.dataIncidente = res.data.data;
     this.nombreIncidente = this.dataIncidente.Nombre;
     this.servicio = this.dataIncidente.Servicio.Nombre;
@@ -191,11 +221,13 @@ export default {
     this.nivel = this.dataIncidente.Nivel_Riesgo.Nombre;
     this.estado = this.dataIncidente.Status.Nombre;
     this.usuarioSoporte = this.dataIncidente.Usuario_Soporte.Nombre+" - "+ resCargo.data.data.Nombre;
-    this.usuarioAfectado = this.dataIncidente.Usuario_Cliente.Nombre+" - "+ resCargo.data.data.Nombre;
+    this.usuarioAfectado = this.dataIncidente.Usuario_Cliente.Nombre+" - "+ resRol.data.data.Nombre;
     this.descripcion = this.dataIncidente.Descripcion;
     this.fechaFin= this.dataIncidente.Fecha_Fin;
     this.fechaInicio=this.dataIncidente.Fecha_Inicio;
     this.file = this.dataIncidente.Archivo;
+
+    this.rolUsuario=localStorage.getItem("tipoUsuario")
   },
 };
 </script>

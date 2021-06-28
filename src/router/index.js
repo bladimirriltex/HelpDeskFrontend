@@ -90,7 +90,14 @@ const routes = [
         path:"",
         name:"tablaincidentesusuario",
         component: ()=> import(/* webpackChunkName: "Usuarios"*/'../components/TablaincidentesUsuario.vue')
-      },     
+      },
+      {
+        path:":incidente",
+        name:"incidenteuser",
+        props:true,
+        component: ()=> import(/* webpackChunkName: "VerIncidente"*/'../views/Incidente.vue')
+
+      }     
     ]
   },
   {

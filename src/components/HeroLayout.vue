@@ -11,13 +11,13 @@
         <div class="card-links">
           <div class="card-head">Soluciones Rápidas</div>
           <div class="card-content">
-            <p>Como añadir una foto de perfil</p>
+            <p>Cambiar Contraseña </p>
           </div>
           <div class="card-content">
             <p>Como añadir una foto de perfil</p>
           </div>
           <div class="card-content">
-            <p>Como añadir una foto de perfil</p>
+            <p>Crear cuenta</p>
           </div>
         </div>
       </div>
@@ -41,6 +41,7 @@ export default {
     #301119,
     #000000
   );
+  margin-top: 100px;
 }
 .hero-container-layout {
   height: 40vh;

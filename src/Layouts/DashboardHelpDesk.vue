@@ -72,8 +72,8 @@
           />
 
           <div>
-            <h3>Edu Mollo Collanqui</h3>
-            <small>Super Admin</small>
+            <h3>{{ this.nombre }} {{ this.apellidos }}</h3>
+            <small>{{this.rol}}</small>
           </div>
         </div>
       </header>
@@ -94,22 +94,34 @@ export default {
   components: {},
 
   data() {
-    return {};
+    return {
+      nombre: "",
+      apellidos: "",
+      rol: "",
+    };
   },
   beforeCreate() {
     if (localStorage.getItem("token") === null) {
-      
       this.$router.push("/login");
     }
-    if(localStorage.getItem("tipoUsuario")==="cliente"){
-        this.$router.push("/dashboardusuario")
-      }
+    if (localStorage.getItem("tipoUsuario") === "cliente") {
+      this.$router.push("/dashboardusuario");
+    }
   },
-  async created() {},
+  async created() {
+    const res = await axios.get("user/" + localStorage.getItem("idUser"));
+    const resRol=await axios.get("cargo/"+localStorage.getItem("rol"))
+    let user = res.data.data;
+    console.log(res, user.usuarios_soportes[0].Nombre);
+    this.nombre = user.usuarios_soportes[0].Nombre;
+    this.apellidos = user.usuarios_soportes[0].Apellido;
+    this.rol=resRol.data.data.Nombre;
+    console.log(this.nombre, this.apellidos);
+  },
   methods: {
     async logout() {
       const res = await axios.post("logout");
-      console.log(res)
+      console.log(res);
       localStorage.clear();
       this.$router.push("/");
     },

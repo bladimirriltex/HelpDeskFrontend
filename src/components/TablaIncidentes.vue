@@ -3,11 +3,12 @@
     <div class="card">
       <div class="card-header">
         <h2>Incidentes Recientes</h2>
-        <button class="btn-utp" id="show-modal" @click="showModal = true"><i class="las la-plus-circle"></i>Nuevo Incidente</button>
+        <button class="btn-utp" id="show-modal" @click="showModal = true">
+          <i class="las la-plus-circle"></i>Nuevo Incidente
+        </button>
 
         <Modal v-if="showModal" @close="showModal = false">
           <RegistrarIncidente slot="body" style="width: 90%" />
-           
         </Modal>
       </div>
       <div class="card-body">
@@ -18,7 +19,15 @@
               <td>Usuario</td>
               <td>Servicio</td>
               <td>Canal</td>
-              <td>Estado</td>
+              <td class="d-flex order">
+                Estado
+                <div @click="ordenar()" @dblclick="getData()">
+                  <i
+                    class="las la-sort-amount-down"
+                    style="font-size: 1.8em"
+                  ></i>
+                </div>
+              </td>
               <td>Acciones</td>
             </thead>
             <tbody>
@@ -33,16 +42,27 @@
                 <td>{{ aux.Usuario_Cliente.Nombre }}</td>
                 <td>{{ aux.Servicio.Nombre }}</td>
                 <td>{{ aux.Canal.Nombre }}</td>
-                <td style="width: 18%;">
-                   <div>
-                      <span v-if="aux.Status.id===1" class="status pendiente"></span>
-                      <span v-if="aux.Status.id===2" class="status progreso"></span>
-                      <span v-if="aux.Status.id===3" class="status presencial"></span>
-                      <span v-if="aux.Status.id===4" class="status resuelto"></span>
-                   {{ aux.Status.Nombre }}
-                   </div>
-                  
-                  </td>
+                <td style="width: 18%">
+                  <div>
+                    <span
+                      v-if="aux.Status.id === 1"
+                      class="status pendiente"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 2"
+                      class="status progreso"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 3"
+                      class="status presencial"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 4"
+                      class="status resuelto"
+                    ></span>
+                    {{ aux.Status.Nombre }}
+                  </div>
+                </td>
                 <td class="accion">
                   <router-link
                     :to="{
@@ -68,27 +88,42 @@ export default {
   name: "TablaIncidentes",
   components: {
     Modal,
-    RegistrarIncidente
+    RegistrarIncidente,
   },
   data() {
     return {
       incidentes: [],
-      showModal:false,
+      showModal: false,
     };
   },
   methods: {
     getIncidente() {},
+    ordenar() {
+      
+      this.incidentes = this.incidentes.sort((a, b) => {
+        if (a.Status.id > b.Status.id) {
+          return 1;
+        }
+        if (a.Status.id < b.Status.id) {
+          return -1;
+        }
+        return 0;
+      });
+      console.log(this.incidentes);
+    },
+
+    async getData() {
+      this.incidentes = []
+      let res = await axios.get("incidente");
+      if (res.status == 200) {
+        for (let incidente of res.data.data) {
+          this.incidentes.push(incidente);
+        }
+      }
+    },
   },
   async created() {
-    let res = await axios.get("incidente");
-    if (res.status == 200) {
-      for (let incidente of res.data.data) {
-        this.incidentes.push(incidente);
-      }
-    }
-
-
- 
+    this.getData();
   },
 };
 </script>
@@ -164,7 +199,6 @@ tr td:last-child {
   background-color: #000;
 }
 
-
 .status.resuelto {
   background-color: rgb(51, 165, 121);
 }
@@ -185,23 +219,26 @@ tr td:last-child {
   overflow-x: auto;
 }
 
- .btn-utp {
+.btn-utp {
   background: #fff;
   font-size: 1.2rem;
   border-radius: 10px;
-  color:var(--main-color);
-  font-weight:600;
+  color: var(--main-color);
+  font-weight: 600;
   padding: 0.5rem 1rem;
   border: 2.5px solid var(--main-color);
 }
- .btn-utp:hover {
+.btn-utp:hover {
   background: rgb(196, 68, 68);
   font-size: 1.2rem;
   border-radius: 10px;
-  color:#fff;
-  font-weight:600;
+  color: #fff;
+  font-weight: 600;
   padding: 0.5rem 1rem;
   border: 2.5px solid #555;
 }
- 
+.order div:hover {
+  background-color: #00000055;
+  border-radius: 5px;
+}
 </style>

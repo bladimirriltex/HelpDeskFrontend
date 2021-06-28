@@ -16,11 +16,7 @@
               ><i class="las la-scroll"></i>Soluciones</router-link
             >
           </li>
-          <li>
-            <router-link to="dashboard"
-              ><i class="las la-newspaper"></i>Incidentes</router-link
-            >
-          </li>
+           
           <li>
             <router-link to="/articulo"
               ><i class="las la-calendar-alt"></i>Articulos</router-link

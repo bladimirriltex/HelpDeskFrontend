@@ -9,19 +9,12 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <router-link to="/dashboardusuario/tablero">
+            <router-link to="/dashboardusuario">
               <span class="las la-clipboard-list"></span><span>Tablero</span>
             </router-link>
           </li>
-
           <li>
-            <router-link to="/dashboardusuario/incidentes">
-              <span class="las la-exclamation-triangle"></span
-              ><span>Incidentes</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/dashboard">
+            <router-link to="/dashboardusuario">
               <span class="las la-laptop-code"></span><span>Soluciones</span>
             </router-link>
           </li>
@@ -53,8 +46,8 @@
           />
 
           <div>
-            <h3>Edu Mollo Collanqui</h3>
-            <small>Super Admin</small>
+            <h3>{{ this.nombre}} {{this.apellidos}}</h3>
+            <small>{{ this.rol}}</small>
           </div>
         </div>
       </header>
@@ -73,6 +66,9 @@ export default {
   name: "DashboardUser",
   data() {
     return {
+      nombre:"",
+      apellidos:"",
+      rol:""
 
     };
   },
@@ -80,6 +76,17 @@ export default {
     if (localStorage.getItem("token") === null) {
       this.$router.push("/login");
     }
+  },
+
+  async created() {
+    const res = await axios.get("user/" + localStorage.getItem("idUser"));
+    const resRol = await axios.get("rol/" + localStorage.getItem("rol"));
+    let user = res.data.data;
+    console.log(res, user.usuarios_clientes[0].Nombre);
+    this.nombre = user.usuarios_clientes[0].Nombre;
+    this.apellidos = user.usuarios_clientes[0].Apellido;
+    this.rol = resRol.data.data.Nombre;
+    console.log(this.nombre, this.apellidos);
   },
   methods: {
     async logout() {

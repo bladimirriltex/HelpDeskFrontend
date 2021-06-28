@@ -2,21 +2,21 @@
      <section class="knowledge">
       <div class="container incidents">
         <div class="features-articles">
-          <h2>Feature Articles</h2>
+          <h2>Nuevos Articulos</h2>
           <div class="card-article hvr-rotate">
             <div class="icon purple las la-user-cog"></div>
 
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+              <h2>Revertir cambios</h2>
+              <h3>Ver articulos <i class="las la-angle-right"></i></h3>
             </div>
           </div>
 
           <div class="card-article hvr-rotate">
             <div class="icon red las la-user-cog"></div>
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2>Solicitar  informacion</h2>
+              <h3>Ver articulos <i class="las la-angle-right"></i></h3>
             </div>
           </div>
 
@@ -24,52 +24,52 @@
             <div class="icon orange las la-user-cog"></div>
 
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2>Solicitar  informacion</h2>
+              <h3>Ver articulos <i class="las la-angle-right"></i></h3>
             </div>
           </div>
 
           <div class="card-article hvr-rotate">
             <div class="icon blue las la-user-cog"></div>
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2> informacion</h2>
+              <h3>Ver articulos <i class="las la-angle-right"></i></h3>
             </div>
           </div>
         </div>
         <div class="recently-articles">
-          <h2>Recently Update</h2>
+          <h2>Recientemente Actualizados</h2>
 
           <div class="card-article hvr-rotate">
             <div class="icon blue las la-user-cog"></div>
 
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2>Solicitar Cambios  </h2>
+              <h3>Ver articulo <i class="las la-angle-right"></i></h3>
             </div>
           </div>
 
           <div class="card-article hvr-rotate">
             <div class="icon orange las la-user-cog"></div>
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2>Cambios de informacion</h2>
+              <h3>Ver articulo <i class="las la-angle-right"></i></h3>
             </div>
           </div>
           <div class="card-article hvr-rotate">
             <div class="icon purple las la-user-cog"></div>
 
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2>Verificacion de plataformas</h2>
+              <h3>Ver articulo <i class="las la-angle-right"></i></h3>
             </div>
           </div>
 
           <div class="card-article hvr-rotate">
             <div class="icon red las la-cogs"></div>
             <div class="description">
-              <h2>Can't verify second user account</h2>
-              <h3>View article <i class="las la-angle-right"></i></h3>
+               <h2>Asistencia tecnica</h2>
+              <h3>Ver articulo <i class="las la-angle-right"></i></h3>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
 }
 
 .knowledge {
-  padding: 50px;
+  padding: 80px;
   background-color: #edf0f1;
 }
 
