@@ -75,14 +75,14 @@
         <div class="row">
           <div class="col-6">
             <label for="nivel">Nivel de Riesgo</label>
-            <input
+            <select
               v-model="nivel"
               class="form-control my-2"
               id="nivel"
               readonly
             />
             <label for="servicio">Servicio</label>
-            <input
+            <select
               v-model="servicio"
               type="text"
               class="form-control my-2"
@@ -90,7 +90,7 @@
               readonly
             />
             <label for="soporte">Asignado</label>
-            <input
+            <select
               v-model="usuarioSoporte"
               type="text"
               class="form-control my-2"
@@ -118,7 +118,7 @@
           </div>
           <div class="col-6">
             <label for="Tipo">Tipo</label>
-            <input
+            <select
               v-model="tipoIncidente"
               type="text"
               class="form-control my-2"
@@ -127,7 +127,7 @@
             />
 
             <label for="estado">Estado</label>
-            <input
+            <select
               v-model="estado"
               type="text"
               class="form-control my-2"
@@ -136,7 +136,7 @@
             />
 
             <label for="origen">Afectado</label>
-            <input
+            <select
               v-model="usuarioAfectado"
               type="text"
               class="form-control my-2"
@@ -144,7 +144,7 @@
               readonly
             />
             <label for="canal">Canal</label>
-            <input
+            <select
               v-model="canal"
               type="text"
               class="form-control my-2"

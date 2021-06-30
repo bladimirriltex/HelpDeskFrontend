@@ -95,7 +95,7 @@ const routes = [
         path:":incidente",
         name:"incidenteuser",
         props:true,
-        component: ()=> import(/* webpackChunkName: "VerIncidente"*/'../views/Incidente.vue')
+        component: ()=> import(/* webpackChunkName: "VerIncidente"*/'../views/IncidenteUsuario.vue')
 
       }     
     ]
