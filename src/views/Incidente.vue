@@ -1,6 +1,8 @@
 <template>
+<form @submit.prevent="incidente1()" class="">
   <div class="card-incidente fs-2">
     <div class="row">
+      
       <div class="col-6">
         <h3>Datos de Incidente</h3>
       </div>
@@ -76,27 +78,48 @@
           <div class="col-6">
             <label for="nivel">Nivel de Riesgo</label>
             <select
-              v-model="nivel"
+              v-model="nivelId"
               class="form-control my-2"
               id="nivel"
-              readonly
-            />
+            >
+            <option
+              v-for="nivel in this.niveles"
+              :value="nivel.id"
+              :key="nivel.id"
+            >
+              {{ nivel.Nombre }}
+            </option>
+            </select>
             <label for="servicio">Servicio</label>
             <select
-              v-model="servicio"
+              v-model="servicioId"
               type="text"
               class="form-control my-2"
               id="servicio"
-              readonly
-            />
+            >
+            <option
+              v-for="servicio in this.servicios"
+              :value="servicio.id"
+              :key="servicio.id"
+            >
+              {{ servicio.Nombre }}
+            </option>
+            </select>
             <label for="soporte">Asignado</label>
             <select
-              v-model="usuarioSoporte"
+              v-model="usuarioSoporteId"
               type="text"
               class="form-control my-2"
               id="soporte"
-              readonly
-            />
+            >
+            <option
+              v-for="usuarioSoporte in this.usuariosDeSoporte"
+              :value="usuarioSoporte.id"
+              :key="usuarioSoporte.id"
+            >
+              {{ usuarioSoporte.Nombre }}
+            </option>
+            </select>
 
             <label for="fecha">Fecha Registrada</label>
             <input
@@ -119,38 +142,66 @@
           <div class="col-6">
             <label for="Tipo">Tipo</label>
             <select
-              v-model="tipoIncidente"
+              v-model="tipoIncidenteId"
               type="text"
               class="form-control my-2"
               id="Tipo"
-              readonly
-            />
+            >
+            <option
+              v-for="tipoIncidente in this.tiposIncidentes"
+              :value="tipoIncidente.id"
+              :key="tipoIncidente.id"
+            >
+              {{ tipoIncidente.Nombre }}
+            </option>
+            </select>
 
             <label for="estado">Estado</label>
             <select
-              v-model="estado"
+              v-model="estadoId"
               type="text"
               class="form-control my-2"
               id="estado"
-              readonly
-            />
+            >
+            <option
+              v-for="estado in this.estados"
+              :value="estado.id"
+              :key="estado.id"
+            >
+              {{ estado.Nombre }}
+            </option>
+            </select>
 
             <label for="origen">Afectado</label>
             <select
-              v-model="usuarioAfectado"
+              v-model="usuarioAfectadoId"
               type="text"
               class="form-control my-2"
               id="origen"
-              readonly
-            />
+            >
+            <option
+              v-for="usuarioAfectado in this.usuarioClientes"
+              :value="usuarioAfectado.id"
+              :key="usuarioAfectado.id"
+            >
+              {{ usuarioAfectado.Nombre }}
+            </option>
+            </select>
             <label for="canal">Canal</label>
             <select
-              v-model="canal"
+              v-model="canalId"
               type="text"
               class="form-control my-2"
               id="canal"
-              readonly
-            />
+            >
+             <option
+              v-for="canal in this.canales"
+              :value="canal.id"
+              :key="canal.id"
+            >
+              {{ canal.Nombre }}
+            </option>
+            </select>
           </div>
 
           <label for="exampleFormControlTextarea1" class="form-label" readonly
@@ -172,6 +223,9 @@
       </div>
     </div>
   </div>
+        
+ </form>
+  
 </template>
 <script>
 import axios from "axios";
@@ -186,14 +240,29 @@ export default {
   data() {
     return {
       dataIncidente: {},
+      servicios: [],
+      tiposIncidentes: [],
+      canales: [],
+      niveles: [],
+      estados: [],
+      usuariosDeSoporte: [],
+      usuarioClientes:[],
+
       nombreIncidente: "",
       servicio: "",
+      servicioId: 0,
       tipoIncidente: "",
+      tipoIncidenteId: 0,
       canal: "",
+      canalId: 0,
       nivel: "",
+      nivelId: 0,
       estado: "",
+      estadoId: 0,
       usuarioSoporte: "",
+      usuarioSoporteId: 0,
       usuarioAfectado:"",
+      usuarioAfectadoId: 0,
       descripcion: "",
       cargo:"",
       rol:"",
@@ -204,9 +273,56 @@ export default {
       rolUsuario:"",
     };
   },
-  methods: {},
+
+  methods: {
+    async incidente1() {
+      console.log(this.nivelId + "refs")
+      const incidente = {
+        Nombre: this.nombreIncidente,
+        Descripcion: this.descripcion,
+        Id_Servicio: this.servicio,
+        Id_TipoIncidente: this.tipoIncidente,
+        Id_Canal: this.canal,
+        Id_NivelRiesgo: this.nivel,
+        Id_Status: this.estado,
+        Id_UsuarioCliente: this.usuarioCliente,
+        Id_UsuarioSoporte: this.usuarioSoporte,
+      };
+      console.log(incidente);
+      let res = await axios.post("incidente", incidente);
+      console.log(res);
+
+      
+    },
+
+    previewFiles(event) {
+      this.file = event.target.files;
+ 
+    },
+  },
 
   async created() {
+    let serviciosData = await axios.get("http://127.0.0.1:8000/api/servicio");
+    let tiposIncidentesData = await axios.get(
+      "http://127.0.0.1:8000/api/tipo_incidente"
+    );
+    let canalesData = await axios.get("http://127.0.0.1:8000/api/canal");
+    let nivelesData = await axios.get("http://127.0.0.1:8000/api/nivel_riesgo");
+    let estadosData = await axios.get("http://127.0.0.1:8000/api/status");
+    let usuario_soporte = await axios.get(
+      "http://127.0.0.1:8000/api/usuario_soporte"
+    );
+    let usuarioCliente = await axios.get("usuario_cliente");
+    
+    this.usuarioClientes = usuarioCliente.data.data
+    this.servicios = serviciosData.data.data;
+    this.tiposIncidentes = tiposIncidentesData.data.data;
+    this.canales = canalesData.data.data;
+    this.niveles = nivelesData.data.data;
+    this.estados = estadosData.data.data;
+    this.usuariosDeSoporte = usuario_soporte.data.data;
+
+
     let res = await axios.get("incidente/" + this.incidente);
     
     this.dataIncidente=res.data.data;
@@ -216,18 +332,28 @@ export default {
     this.dataIncidente = res.data.data;
     this.nombreIncidente = this.dataIncidente.Nombre;
     this.servicio = this.dataIncidente.Servicio.Nombre;
+    this.servicioId = this.dataIncidente.Servicio.id;
     this.tipoIncidente = this.dataIncidente.Tipo_Incidente.Nombre;
+    this.tipoIncidenteId = this.dataIncidente.Tipo_Incidente.id;
     this.canal = this.dataIncidente.Canal.Nombre;
+    this.canalId = this.dataIncidente.Canal.id;
     this.nivel = this.dataIncidente.Nivel_Riesgo.Nombre;
+    this.nivelId = this.dataIncidente.Nivel_Riesgo.id;
     this.estado = this.dataIncidente.Status.Nombre;
+    this.estadoId = this.dataIncidente.Status.id;
     this.usuarioSoporte = this.dataIncidente.Usuario_Soporte.Nombre+" - "+ resCargo.data.data.Nombre;
+    this.usuarioSoporteId = this.dataIncidente.Usuario_Soporte.id;
     this.usuarioAfectado = this.dataIncidente.Usuario_Cliente.Nombre+" - "+ resRol.data.data.Nombre;
+    this.usuarioAfectadoId = this.dataIncidente.Usuario_Cliente.id;
     this.descripcion = this.dataIncidente.Descripcion;
     this.fechaFin= this.dataIncidente.Fecha_Fin;
     this.fechaInicio=this.dataIncidente.Fecha_Inicio;
     this.file = this.dataIncidente.Archivo;
 
     this.rolUsuario=localStorage.getItem("tipoUsuario")
+    console.log(this.nivel)
+    console.log(this.fechaInicio)
+    console.log(res)
   },
 };
 </script>
