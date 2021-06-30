@@ -239,7 +239,6 @@ export default {
         Id_Status: this.estado,
         Id_UsuarioCliente: this.usuarioCliente,
         Id_UsuarioSoporte: this.usuarioSoporte,
-        Archivo: this.file
       };
       console.log(incidente);
       let res = await axios.post("incidente", incidente);
