@@ -8,7 +8,7 @@
         </button>
 
         <Modal v-if="showModal" @close="showModal = false">
-          <RegistrarIncidente slot="body" style="width: 90%" />
+          <RegistrarIncidenteUsuario slot="body" style="width: 90%" />
         </Modal>
       </div>
       <div class="card-body">
@@ -73,12 +73,12 @@
 <script>
 import axios from "axios";
 import Modal from "@/components/Modal.vue";
-import RegistrarIncidente from "@/components/RegistrarIncidente.vue";
+import RegistrarIncidenteUsuario from "@/components/RegistrarIncidenteUsuario.vue";
 export default {
   name: "TablaIncidentes",
   components: {
     Modal,
-    RegistrarIncidente,
+    RegistrarIncidenteUsuario,
   },
   data() {
     return {

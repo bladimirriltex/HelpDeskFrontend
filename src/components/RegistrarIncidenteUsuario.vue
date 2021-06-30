@@ -48,96 +48,8 @@
           </select>
         </div>
       </div>
-      <div class="row my-2">
-        <div class="col-6">
-           <label for="servicio">¿Que canal?</label>
-          <select
-            v-model="canal"
-            class="form-select"
-            aria-label="Default select example"
-          >
- 
-            <option
-              v-for="canal in canales"
-              v-bind:value="canal.id"
-              :key="canal.id"
-            >
-              {{ canal.Nombre }}
-            </option>
-          </select>
-        </div>
-        <div class="col-6">
-
-          <label for="servicio">¿Que nivel?</label>
-          <select
-            v-model="nivel"
-            class="form-select"
-            aria-label="Default select example"
-          >
- 
-            <option
-              v-for="nivel in niveles"
-              v-bind:value="nivel.id"
-              :key="nivel.id"
-            >
-              {{ nivel.Nombre }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="row my-2">
-        <div class="col-6">
-          <label for="servicio">¿Estado?</label>
-          <select
-            v-model="estado"
-            class="form-select"
-            aria-label="Default select example"
-          >
-            <option
-              v-for="estado in estados"
-              v-bind:value="estado.id"
-              :key="estado.id"
-            >
-              {{ estado.Nombre }}
-            </option>
-          </select>
-        </div>
-        <div class="col-6">
-          <label for="servicio">Asignar a...?</label>
-          <select
-            v-model="usuarioSoporte"
-            class="form-select"
-            aria-label="Default select example"
-          >
- 
-            <option
-              v-for="usuario in usuariosDeSoporte"
-              v-bind:value="usuario.id"
-              :key="usuario.id"
-            >
-              {{ usuario.Nombre }}
-            </option>
-          </select>
-        </div>
-
-        <div class="col-6">
-          <label for="servicio">Usuario Afectado</label>
-          <select
-            v-model="usuarioCliente"
-            class="form-select"
-            aria-label="Default select example"
-          >
- 
-            <option
-              v-for="usuario in usuarioClientes"
-              :value="usuario.id"
-              :key="usuario.id"
-            >
-              {{ usuario.Nombre }}
-            </option>
-          </select>
-        </div>
-      </div>
+      
+      
 
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label"
@@ -173,6 +85,7 @@
 </template>
 <script>
 import axios from "axios";
+
 export default {
   name: "RegistrarIncidente",
   data() {
@@ -184,7 +97,7 @@ export default {
       niveles: [],
       estados: [],
       usuariosDeSoporte: [],
-      usuarioClientes:[],
+
       //datamodel
       nombreIncidente: "",
       servicio: "",
@@ -195,10 +108,8 @@ export default {
       usuarioSoporte: "",
       descripcion: "",
       file: null,
-      usuarioCliente:""
     };
   },
-
   async created() {
     let serviciosData = await axios.get("http://127.0.0.1:8000/api/servicio");
     let tiposIncidentesData = await axios.get(
@@ -210,9 +121,7 @@ export default {
     let usuario_soporte = await axios.get(
       "http://127.0.0.1:8000/api/usuario_soporte"
     );
-    let usuarioCliente = await axios.get("usuario_cliente");
-    
-    this.usuarioClientes = usuarioCliente.data.data
+
     this.servicios = serviciosData.data.data;
     this.tiposIncidentes = tiposIncidentesData.data.data;
     this.canales = canalesData.data.data;
@@ -220,26 +129,22 @@ export default {
     this.estados = estadosData.data.data;
     this.usuariosDeSoporte = usuario_soporte.data.data;
 
-    console.log(this.usuarioCliente)
-
     //console.log(serviciosData,tiposIncidentesData,CanalesData,nivelesData,estadosData,usuario_soporte);
   },
-
-
   methods: {
     async registrarIncidente() {
-      
+     
       const incidente = {
         Nombre: this.nombreIncidente,
         Descripcion: this.descripcion,
         Id_Servicio: this.servicio,
         Id_TipoIncidente: this.tipoIncidente,
-        Id_Canal: this.canal,
-        Id_NivelRiesgo: this.nivel,
-        Id_Status: this.estado,
-        Id_UsuarioCliente: this.usuarioCliente,
-        Id_UsuarioSoporte: this.usuarioSoporte,
-        Archivo: this.file
+        Id_Canal: 1,
+        Id_NivelRiesgo: 3,
+        Id_Status: 1,
+        Id_UsuarioCliente: localStorage.getItem("idUser"),
+        Id_UsuarioSoporte:1,
+         
       };
       console.log(incidente);
       let res = await axios.post("incidente", incidente);
