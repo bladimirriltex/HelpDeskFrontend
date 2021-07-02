@@ -41,7 +41,7 @@ export default {
     #301119,
     #000000
   );
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .hero-container-layout {
   height: 40vh;
