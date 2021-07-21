@@ -2,14 +2,8 @@
   <div class="projects">
     <div class="card">
       <div class="card-header">
-        <h2>Solicitudes Recientes</h2>
-        <button class="btn-utp" id="show-modal" @click="showModal = true">
-          <i class="las la-plus-circle"></i>Nuevo Incidente
-        </button>
-
-        <Modal v-if="showModal" @close="showModal = false">
-          <RegistrarIncidente slot="body" style="width: 90%" />
-        </Modal>
+        <h2>Requerimientos Recientes</h2>
+         
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -82,13 +76,13 @@
 </template>
 <script>
 import axios from "axios";
-import Modal from "@/components/Modal.vue";
-import RegistrarIncidente from "@/components/RegistrarIncidente.vue";
+ 
+ 
 export default {
   name: "TablaIncidentes",
   components: {
-    Modal,
-    RegistrarIncidente,
+ 
+ 
   },
   data() {
     return {
@@ -114,7 +108,7 @@ export default {
 
     async getData() {
       this.incidentes = []
-      let res = await axios.get("incidente");
+      let res = await axios.get("requerimiento");
       if (res.status == 200) {
         for (let incidente of res.data.data) {
           this.incidentes.push(incidente);

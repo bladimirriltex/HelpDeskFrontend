@@ -76,6 +76,21 @@ const routes = [
         props:true,
         component: ()=> import(/* webpackChunkName: "VerIncidente"*/'../views/Incidente.vue')
 
+      },
+      {
+        path:"/inventario",
+        name:"inventario",
+        component: ()=> import(/* webpackChunkName: "Inventario"*/'../views/Inventario.vue')
+      },
+      {
+        path:"/Tareas",
+        name:"tareas",
+        component: ()=> import(/* webpackChunkName: "tareas"*/'../views/Tareas.vue')
+      },
+      {
+        path:"/versiones",
+        name:"versiones",
+        component: ()=> import(/* webpackChunkName: "versiones"*/'../views/Versiones.vue')
       }
      
     ]
@@ -106,11 +121,12 @@ const routes = [
     component: ()=> import(/* webpackChunkName: "Login" */ '../views/Login.vue'),
   },
 
-  {
-    path:"/prueba",
-    name:"prueba",
-    component: ()=> import(/* webpackChunkName: "Login" */ '../Layouts/DashboardUser.vue'),
-  },
+  // {
+  //   path:"/prueba",
+  //   name:"prueba",
+  //   component: ()=> import(/* webpackChunkName: "Login" */ '../components/faq.vue'),
+  // },
+
   {
     path:"/404",
     alias:"*",

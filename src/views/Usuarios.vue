@@ -12,13 +12,16 @@
               <h4>{{ usuariosCliente.Nombre}} {{ usuariosCliente.Apellidos }}</h4>
               <small>{{ usuariosCliente.Rol.Nombre }}</small>
             </div>
+             
           </div>
           <div class="contact">
-            <span class="las la-user-circle"></span>
+            <span style="color:#000; font-weight: 400;"> Nro. de incidentes  <small>{{ usuariosCliente.Cantidad_Incidentes }}</small></span>
+            <!-- <span class="las la-user-circle"></span>
             <span class="las la-comment"></span>
-            <span class="las la-phone"></span>
+            <span class="las la-phone"></span> -->
           </div>
         </div>
+        
 
         
       </div>
@@ -50,6 +53,7 @@ export default {
 .customers{
   width: 80%;
   margin: auto;
+  
 }
 
 .customer {
@@ -57,6 +61,10 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid #6461616d;
+}
+.customer:hover {
+  background-color: #f0eeee9a;
 }
 
 .info {

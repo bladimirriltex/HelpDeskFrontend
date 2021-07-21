@@ -1,134 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700");
-*,
-*::after,
-*::before {
-  box-sizing: inherit;
-}
-* {
-  font: inherit;
-}
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video,
-hr {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-html {
-  box-sizing: border-box;
-}
-body {
-  background-color: hsl(0, 0%, 100%);
-  background-color: var(--color-bg, white);
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-main,
-form legend {
-  display: block;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-button,
-input,
-textarea,
-select {
-  margin: 0;
-}
+
 .btn,
 .form-control,
 .link,
@@ -162,6 +33,9 @@ img,
 video,
 svg {
   max-width: 100%;
+}
+ul{
+  list-style: none;
 }
 [data-theme] {
   background-color: hsl(0, 0%, 100%);
@@ -3419,8 +3293,8 @@ html:not(.js) .cd-faq__group,
   position: relative;
   margin: 1.25em 0 0.5em;
   margin: var(--space-md) 0 var(--space-xs);
-  color: hsl(73, 46%, 55%);
-  color: var(--cd-color-2);
+  color: #000;
+
 }
 @media (min-width: 64rem) {
   .cd-faq__trigger {
@@ -3441,12 +3315,7 @@ html:not(.js) .cd-faq__group,
     top: 50%;
     height: 2px;
     width: 13px;
-    background: hsl(73, 46%, 71.5%);
-    background: hsl(
-      var(--cd-color-2-h),
-      var(--cd-color-2-s),
-      calc(var(--cd-color-2-l) * 1.3)
-    );
+    background-color: #000;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: -webkit-transform 0.2s;
@@ -3583,8 +3452,14 @@ body {
   --header-height: 180px;
   height: 180px;
   height: var(--header-height);
-  background-color: hsl(73, 46%, 55%);
-  background-color: var(--cd-color-2);
+  background-image: linear-gradient(
+    to right top,
+    #b50d30,
+    #87122d,
+    #5a1325,
+    #301119,
+    #000000
+  );
 }
 @media (min-width: 80rem) {
   .cd-header {

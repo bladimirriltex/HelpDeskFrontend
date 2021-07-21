@@ -99,4 +99,10 @@ export default {
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.hero-container-main .quick-links .card-content h2 a:hover {
+  background-color: rgb(71, 64, 64);
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
 </style>

@@ -68,7 +68,7 @@
         </div>
         <div class="col-6">
 
-          <label for="servicio">¿Que nivel?</label>
+          <label for="servicio">¿Que Prioridad?</label>
           <select
             v-model="nivel"
             class="form-select"
@@ -115,7 +115,7 @@
               v-bind:value="usuario.id"
               :key="usuario.id"
             >
-              {{ usuario.Nombre }}
+              {{ usuario.Nombre }} - {{ usuario.Cargo.Nombre}}
             </option>
           </select>
         </div>
@@ -133,7 +133,25 @@
               :value="usuario.id"
               :key="usuario.id"
             >
-              {{ usuario.Nombre }}
+              {{ usuario.Nombre }} - {{ usuario.Rol.Nombre}}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-6">
+          <label for="servicio">¿Tipo?</label>
+          <select
+            v-model="tipo"
+            class="form-select"
+            aria-label="Default select example"
+          >
+ 
+            <option
+              v-for="tipo in tiposProblemas"
+              :value="tipo.id"
+              :key="tipo.id"
+            >
+              {{ tipo.nombre }}  
             </option>
           </select>
         </div>
@@ -150,15 +168,7 @@
           rows="4"
         ></textarea>
         
-        <div class="my-3">
-          <input
-            type="file"
-            @change="previewFiles"
-            multiple
-            class="form-control"
-            id="formFile"
-          />
-        </div>
+         
       </div>
       <center>
         <input
@@ -185,6 +195,7 @@ export default {
       estados: [],
       usuariosDeSoporte: [],
       usuarioClientes:[],
+      tiposProblemas:[],
       //datamodel
       nombreIncidente: "",
       servicio: "",
@@ -195,7 +206,8 @@ export default {
       usuarioSoporte: "",
       descripcion: "",
       file: null,
-      usuarioCliente:""
+      usuarioCliente:"",
+      tipo:""
     };
   },
 
@@ -211,6 +223,7 @@ export default {
       "http://127.0.0.1:8000/api/usuario_soporte"
     );
     let usuarioCliente = await axios.get("usuario_cliente");
+    let tiposProblemasRes = await axios.get("tipo_problema");
     
     this.usuarioClientes = usuarioCliente.data.data
     this.servicios = serviciosData.data.data;
@@ -219,8 +232,9 @@ export default {
     this.niveles = nivelesData.data.data;
     this.estados = estadosData.data.data;
     this.usuariosDeSoporte = usuario_soporte.data.data;
+    this.tiposProblemas = tiposProblemasRes.data.data;
 
-    console.log(this.usuarioCliente)
+    console.log(this.tiposProblemas)
 
     //console.log(serviciosData,tiposIncidentesData,CanalesData,nivelesData,estadosData,usuario_soporte);
   },
@@ -239,16 +253,14 @@ export default {
         Id_Status: this.estado,
         Id_UsuarioCliente: this.usuarioCliente,
         Id_UsuarioSoporte: this.usuarioSoporte,
+        id_problema: this.tipo,
       };
-      console.log(incidente);
-      let res = await axios.post("incidente", incidente);
-      console.log(res);
+        console.log(incidente);
+        let res=await axios.post("incidente", incidente);
+        console.log(res)
     },
 
-    previewFiles(event) {
-      this.file = event.target.files;
- 
-    },
+     
   },
 };
 </script>

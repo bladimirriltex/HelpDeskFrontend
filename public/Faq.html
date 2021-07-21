@@ -1,0 +1,239 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.getElementsByTagName("html")[0].className += " js";
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>FAQ Page</title>
+  </head>
+  <body>
+    <header class="cd-header flex flex-column flex-center">
+      <div class="text-component text-center">
+        <h1 style="font-weight: 800;">Preguntas frecuentes</h1>
+      </div>
+    </header>
+
+    <h6><a style="margin:0 0 0 100px; color:#000; text-decoration: none;" href="javascript: history.go(-1)">Volver</a></h6>
+    <section
+      class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg"
+    >
+      <ul class="cd-faq__categories">
+        <li>
+          <a
+            class="cd-faq__category cd-faq__category-selected truncate"
+            href="#basics"
+            >Basicas</a
+          >
+        </li>
+        <li><a class="cd-faq__category truncate" href="#mobile">Movil</a></li>
+        <li><a class="cd-faq__category truncate" href="#account">Cuenta</a></li>
+        <li><a class="cd-faq__category truncate" href="#payments">Pagos</a></li>
+
+        <li>
+          <a class="cd-faq__category truncate" href="#delivery">Entrega</a>
+        </li>
+      </ul>
+      <!-- cd-faq__categories -->
+
+      <div class="cd-faq__items">
+        <ul id="basics" class="cd-faq__group">
+          <li class="cd-faq__title"><h2>Basicas</h2></li>
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Como puedo saber cual es mi codigo y contraseña?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Si no conoces tu código y contraseña para ingresar a las
+                  plataformas digitales, podrás contactar a SAE, te solicitarán
+                  datos personales para validar tu usuario.
+                </p>
+                <p><img src="img/sae-contacto.png" /></p>
+                <p>
+                  Si no conoces tu código y contraseña para ingresar a las
+                  plataformas digitales, podrás contactar a CAD, te solicitarán
+                  datos personales para validar tu usuario.
+                </p>
+                <p><img src="img/cad-contacto.png" /></p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Como inicio sesion?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Ingresa a "Iniciar Sesion" en la barra superior, luego coloca
+                  tu correo y contraseña correspondiente
+                </p>
+                <p><img src="img/iniciar-sesion.jpg" /></p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Como reviso mis todos mis incidentes?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Luego de Iniciar sesion ingresa a la pestaña tablero, en esta
+                  encontraras todos tus incidentes enviados y su estado
+                  correspondiente
+                </p>
+                <p><img src="img/dashboard-usuario.jpg" /></p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+        </ul>
+        <!-- cd-faq__group -->
+
+        <ul id="mobile" class="cd-faq__group">
+          <li class="cd-faq__title"><h2>Movil</h2></li>
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span
+                >¿Como ver la informacion de mis incidentes en movil?</span
+              ></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Puedes ingresar a la Mesa de Ayuda desde tu navegador movil
+                </p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Que aplicaciones debo tener instalado de la utp?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Todos nuestros usuarios, estudiantes, profesores y
+                  trabajadores necesitan la aplicacion de OutLook para el manejo
+                  de correo electronico
+                </p>
+                <p><img src="img/outlook.png" /></p>
+                <p>Si eres estudiante:</p>
+                <p><img src="img/utp-plus.jpg" /></p>
+                <p><img src="img/canvas-student.jpg" /></p>
+                <p>Si eres profesor:</p>
+                <p><img src="img/docente-utp.jpg" /></p>
+                <p><img src="img/canvas-teacher.jpg" /></p>
+                <p>Si eres padre de familia:</p>
+                <p><img src="img/canvas-parent.jpg" /></p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+        </ul>
+        <!-- cd-faq__group -->
+
+        <ul id="account" class="cd-faq__group">
+          <li class="cd-faq__title"><h2>Cuenta</h2></li>
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Como cambio de contraseña?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Si deseas cambiar tu contraseña para ingresar a las
+                  plataformas digitales, puedes hacerlo en
+                  <a href="https://contrasena.utp.edu.pe"
+                    >https://contrasena.utp.edu.pe
+                  </a>
+                </p>
+                <p><img src="img/cambio-contraseña.png" /></p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+        </ul>
+        <!-- cd-faq__group -->
+
+        <ul id="payments" class="cd-faq__group">
+          <li class="cd-faq__title"><h2>Pagos</h2></li>
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Donde puedo saber mis pagos?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Puedes ingresar al
+                  <a href="https://portalestudiante.utp.edu.pe"
+                    >Portal del Estudiante</a
+                  >
+                  y en el apartado de pagos, tambien en el aplicativo we UTP+
+                </p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+        </ul>
+        <!-- cd-faq__group -->
+
+        <ul id="delivery" class="cd-faq__group">
+          <li class="cd-faq__title"><h2>Entrega</h2></li>
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span>¿Donde puedo ver mis reclamos e incidentes?</span></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Todos tus tickets pueden ser observados desde tu tablero de
+                  navegacion
+                </p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+
+          <li class="cd-faq__item">
+            <a class="cd-faq__trigger" href="#0"
+              ><span
+                >¿Comp puedo saber si mis problemas estan solucionados?</span
+              ></a
+            >
+            <div class="cd-faq__content">
+              <div class="text-component">
+                <p>
+                  Puedes ver tus tickets solucionados en la pestaña
+                  "Solucionados" de tu tablero. Ademas, en el tablero principal
+                  puedes ver el estado de tus tickets.
+                </p>
+              </div>
+            </div>
+            <!-- cd-faq__content -->
+          </li>
+        </ul>
+        <!-- cd-faq__group -->
+      </div>
+      <!-- cd-faq__items -->
+
+      <a href="#0" class="cd-faq__close-panel text-replace">Close</a>
+
+      <div class="cd-faq__overlay" aria-hidden="true"></div>
+    </section>
+    <script src="/js/util.js"></script>
+    <!-- util functions included in the CodyHouse framework -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

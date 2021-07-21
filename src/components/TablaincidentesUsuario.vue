@@ -2,7 +2,7 @@
   <div class="projects">
     <div class="card">
       <div class="card-header">
-        <h2>Incidentes Recientes</h2>
+        <h2>Solicitudes Recientes</h2>
         <button class="btn-utp" id="show-modal" @click="showModal = true">
           <i class="las la-plus-circle"></i>Nuevo Incidente
         </button>

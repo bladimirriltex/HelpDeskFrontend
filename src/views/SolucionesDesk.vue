@@ -1,49 +1,44 @@
 <template>
   <div>
-    <HeroLayout  />
+    <HeroLayout />
     <main class="main container">
-      <div class="card knowled float">
-        <img src="@/assets/img/base.png" alt="" />
-        <h2>Knowledge Base</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-          nesciunt.
-        </p>
-      </div>
+      <router-link to="/articulo">
+        <div class="card knowled float">
+          <img src="@/assets/img/base.png" alt="" />
+          <h2>Knowledge Base</h2>
+          <p>Puedes encontrar la solucion de tus problemas.</p>
+        </div>
+      </router-link>
 
-      <div class="card faqs float">
-        <img src="@/assets/img/question.png" alt="" />
-        <h2>FAQs</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-          nesciunt.
-        </p>
-      </div>
+      <a href="Faq.html">
+        <div class="card faqs float">
+          <img src="@/assets/img/question.png" alt="" />
+          <h2>FAQs</h2>
+          <p>
+            Revise la preguntas mas frecuentes hechas en la mesa de ayuda UTP.
+          </p>
+        </div>
+      </a>
 
       <div class="card more-questions float">
         <img src="@/assets/img/sms.png" alt="" />
-        <h2>More Questions?</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-          nesciunt.
-        </p>
+        <h2>Mas preguntas</h2>
+        <p>Puedes realizar tus preguntas y resolver tus dudas.</p>
       </div>
     </main>
   </div>
 </template>
 <script>
 import HeroLayout from "@/components/HeroLayout.vue";
-export default{
-  name:"SolucionesDesk",
-  components:{
-    HeroLayout, 
+export default {
+  name: "SolucionesDesk",
+  components: {
+    HeroLayout,
   },
-}
+};
 </script>
 
 <style >
-
-
 .main {
   padding: 50px;
   display: flex;
@@ -91,7 +86,6 @@ export default{
   background-color: #d01a49;
 }
 
-
 .float {
   display: inline-block;
   vertical-align: middle;
@@ -105,7 +99,9 @@ export default{
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.float:hover, .float:focus, .float:active {
+.float:hover,
+.float:focus,
+.float:active {
   -webkit-transform: translateY(-8px);
   transform: translateY(-8px);
 }

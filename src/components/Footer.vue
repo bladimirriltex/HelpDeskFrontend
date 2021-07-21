@@ -14,7 +14,7 @@
           <div class="contacts">
             <div class="card-contact">
               <h3>Pregunta General</h3>
-              <h2>Ver Preguntas Frecuentes</h2>
+              <h2><a href="Faq.html"  >Ver Preguntas Frecuentes</a></h2>
             </div>
 
             <div class="card-contact">
@@ -82,10 +82,21 @@ export default {
   padding: 14px 12px;
   cursor: pointer;
 }
+
+.contact-support .contacts .card-contact h2 a{
+  color: #fff;
+  text-decoration: none;
+}
+
 .contact-support .contacts .card-contact:hover {
   color: hsla(0, 5%, 80%, 0.8);
   text-decoration: none;
   border:1px solid #fff;
+}
+
+.contact-support .contacts .card-contact h2 a:hover{
+  color: hsla(0, 5%, 80%, 0.8);
+  text-decoration: none;
 }
 
 .contact-support .contacts .card-contact h3 {

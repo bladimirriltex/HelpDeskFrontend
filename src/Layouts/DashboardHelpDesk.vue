@@ -24,24 +24,22 @@
               ><span>Incidentes</span>
             </router-link>
           </li>
+          
           <li>
-            <router-link to="/dashboard">
-              <span class="las la-laptop-code"></span><span>Ordenes</span>
+            <router-link to="/inventario">
+              <span class="las la-laptop-code"></span><span>Inventario</span>
             </router-link>
           </li>
+
           <li>
-            <router-link to="/dashboard">
-              <span class="las la-receipt"></span><span>Inventario</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/dashboard">
-              <span class="las la-user-circle"></span><span>Cuentas</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/dashboard">
+            <router-link to="/tareas">
               <span class="las la-clipboard-list"></span><span>Tareas</span>
+            </router-link>
+          </li>
+          
+          <li>
+            <router-link to="/versiones">
+              <span class="las la-history"></span><span>Versiones</span>
             </router-link>
           </li>
         </ul>
@@ -73,7 +71,7 @@
 
           <div>
             <h3>{{ this.nombre }} {{ this.apellidos }}</h3>
-            <small>{{this.rol}}</small>
+            <small>{{ this.rol }}</small>
           </div>
         </div>
       </header>
@@ -87,7 +85,7 @@
   </div>
 </template>
 
-<script scope>
+<script>
 import axios from "axios";
 export default {
   name: "DashboardHelDesk",
@@ -110,13 +108,11 @@ export default {
   },
   async created() {
     const res = await axios.get("user/" + localStorage.getItem("idUser"));
-    const resRol=await axios.get("cargo/"+localStorage.getItem("rol"))
+    const resRol = await axios.get("cargo/" + localStorage.getItem("rol"));
     let user = res.data.data;
-    console.log(res, user.usuarios_soportes[0].Nombre);
     this.nombre = user.usuarios_soportes[0].Nombre;
     this.apellidos = user.usuarios_soportes[0].Apellido;
-    this.rol=resRol.data.data.Nombre;
-    console.log(this.nombre, this.apellidos);
+    this.rol = resRol.data.data.Nombre;
   },
   methods: {
     async logout() {
