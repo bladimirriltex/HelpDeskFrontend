@@ -7,14 +7,14 @@
         </div>
         <div class="col-6" v-if="rolUsuario === 'cliente'">
           <button
-            v-if="dataIncidente.Status.id === 1"
+            v-if="dataIncidente.Status.id === 4"
             class="btn btn-danger float-end"
             disabled
           >
             Sin Solucion
           </button>
           <button
-            v-if="dataIncidente.Status.id === 2"
+            v-if="dataIncidente.Status.id === 6"
             class="btn btn-warning float-end"
             disabled
           >
@@ -28,7 +28,7 @@
             Visita Presencial
           </button>
           <button
-            v-if="dataIncidente.Status.id === 4"
+            v-if="dataIncidente.Status.id === 7"
             class="btn btn-dark float-end"
             disabled
           >
@@ -38,13 +38,13 @@
 
         <div class="col-6" v-if="rolUsuario != 'cliente'">
           <button
-            v-if="dataIncidente.Status.id === 1"
+            v-if="dataIncidente.Status.id === 3"
             class="btn btn-success float-end"
           >
             Solucionar
           </button>
           <button
-            v-if="dataIncidente.Status.id === 2"
+            v-if="dataIncidente.Status.id === 6"
             class="btn btn-warning float-end"
           >
             Buscando Solucion

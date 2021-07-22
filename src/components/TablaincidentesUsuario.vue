@@ -32,23 +32,39 @@
 
                 <td>{{ aux.Servicio.Nombre }}</td>
 
-                <td style="width: 18%">
+                <td style="width: 22%">
                   <div>
                     <span
                       v-if="aux.Status.id === 1"
-                      class="status pendiente"
+                      class="status clasificado"
                     ></span>
                     <span
                       v-if="aux.Status.id === 2"
-                      class="status progreso"
+                      class="status asignado"
                     ></span>
                     <span
                       v-if="aux.Status.id === 3"
-                      class="status presencial"
+                      class="status endiagnostico"
                     ></span>
                     <span
                       v-if="aux.Status.id === 4"
-                      class="status resuelto"
+                      class="status error"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 5"
+                      class="status errorconocido"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 6"
+                      class="status ensolucion"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 7"
+                      class="status solucionado"
+                    ></span>
+                    <span
+                      v-if="aux.Status.id === 8"
+                      class="status cerrado"
                     ></span>
                     {{ aux.Status.Nombre }}
                   </div>
@@ -175,19 +191,30 @@ tr td:last-child {
   background-color: #000;
 }
 
-.status.resuelto {
-  background-color: rgb(51, 165, 121);
+.status.clasificado {
+  background-color: rgb(154, 73, 201);
+}
+.status.asignado {
+  background-color: rgb(253, 145, 4);
+}
+.status.endiagnostico {
+  background-color: rgb(59, 145, 202);
+}
+.status.error {
+  background-color: rgb(255, 1, 1);
+}
+.status.errorconocido {
+  background-color: rgb(135, 0, 0);
+}
+.status.ensolucion {
+  background-color: rgb(52, 177, 36);
 }
 
-.status.pendiente {
-  background-color: rgb(211, 21, 37);
+.status.solucionado {
+  background-color: rgb(26, 204, 41);
 }
-
-.status.progreso {
-  background-color: rgb(238, 150, 17);
-}
-.status.presencial {
-  background-color: rgb(128, 0, 255);
+.status.cerrado {
+  background-color: rgb(56, 54, 58);
 }
 
 .table-responsive {
